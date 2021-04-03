@@ -34,6 +34,36 @@
 
 
 
+<!-- 动态标题 -->
+  <script type="text/javascript"> var OriginTitile = document.title, st; 
+      document.addEventListener("visibilitychange", function () { document.hidden ? (document.title = "Σ(っ °Д °;)っ喔哟，崩溃啦！", clearTimeout(st)) : (document.title = "φ(゜▽゜*)♪咦，又好了！", st = setTimeout(function () { document.title = OriginTitile }, 3e3)) }) </script>
+        
+ 
+    <script type="text/javascript"> 
+    //只在桌面版网页启用特效 
+    var windowWidth = $(window).width(); 
+    if (windowWidth > 768) { 
+        document.write('<script type="text/javascript" src="/js/sakura.js"></script>'); 
+    }
+    </script> 
+
+
+<!-- 天气接口 -->
+    
+        <!-- 天气接口-->
+<script type="text/javascript">
+    WIDGET = {FID: '1tFpFZ5Mtj'}
+  </script>
+<script type="text/javascript">
+    //只在桌面版网页启用特效
+    var windowWidth = $(window).width();
+    if (windowWidth > 768) {
+        document.write('<script type="text/javascript" src="https://apip.weatherdt.com/float/static/js/r.js?v=1111"><\/script>');
+        }
+  </script>
+
+      
+
 <body>
     <header class="navbar-fixed">
     <nav id="headNav" class="bg-color nav-transparent">
@@ -407,7 +437,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">170</span>&nbsp;字
+                class="white-color">97</span>&nbsp;字
             
             
             
