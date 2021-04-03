@@ -38,15 +38,7 @@
   <script type="text/javascript"> var OriginTitile = document.title, st; 
       document.addEventListener("visibilitychange", function () { document.hidden ? (document.title = "Σ(っ °Д °;)っ喔哟，崩溃啦！", clearTimeout(st)) : (document.title = "φ(゜▽゜*)♪咦，又好了！", st = setTimeout(function () { document.title = OriginTitile }, 3e3)) }) </script>
         
- 
-    <script type="text/javascript"> 
-    //只在桌面版网页启用特效 
-    var windowWidth = $(window).width(); 
-    if (windowWidth > 768) { 
-        document.write('<script type="text/javascript" src="/js/sakura.js"></script>'); 
-    }
-    </script> 
-
+<script src="/js/sakura.js">
 
 <!-- 天气接口 -->
     
@@ -54,12 +46,9 @@
 <script type="text/javascript">
     WIDGET = {FID: '1tFpFZ5Mtj'}
   </script>
+<!-- <script type="text/javascript" src="https://apip.weatherdt.com/float/static/js/r.js?v=1111"></script> -->
 <script type="text/javascript">
-    //只在桌面版网页启用特效
-    var windowWidth = $(window).width();
-    if (windowWidth > 768) {
-        document.write('<script type="text/javascript" src="https://apip.weatherdt.com/float/static/js/r.js?v=1111"><\/script>');
-        }
+     document.write('<script type="text/javascript" src="https://apip.weatherdt.com/float/static/js/r.js?v=1111"><\/script>');
   </script>
 
       
@@ -333,6 +322,9 @@
 </a>
         
     </nav>
+  <!-- 今日诗词特效 -->
+    <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+
 
 </header>
 
@@ -459,12 +451,25 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E7%BB%BC%E8%BF%B0/">
+                                <span class="chip bg-color">综述</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E6%80%BB%E8%A7%88/" class="post-category">
+                                总览
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -535,7 +540,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="/about" rel="external nofollow noreferrer"></a>
+                    <a href="/about" rel="external nofollow noreferrer">Phoenix</a>
                 </span>
             </div>
             <div class="reprint__type">
@@ -558,7 +563,7 @@
                     本博客所有文章除特別声明外，均采用
                     <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
                     许可协议。转载请注明来源
-                    <a href="/about" target="_blank"></a>
+                    <a href="/about" target="_blank">Phoenix</a>
                     !
                 </span>
             </div>
@@ -582,7 +587,11 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/%E7%BB%BC%E8%BF%B0/">
+                                    <span class="chip bg-color">综述</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -776,13 +785,25 @@
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%80%BB%E8%A7%88/" class="post-category">
+                                    总览
+                                </a>
                             
                             
                         </span>
                     </div>
                 </div>
 
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E7%BB%BC%E8%BF%B0/">
+                        <span class="chip bg-color">综述</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
@@ -814,13 +835,25 @@
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%80%BB%E8%A7%88/" class="post-category">
+                                    总览
+                                </a>
                             
                             
                         </span>
                     </div>
                 </div>
 
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E7%BB%BC%E8%BF%B0/">
+                        <span class="chip bg-color">综述</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
@@ -859,7 +892,7 @@
         var url = document.location.href;
         newdiv.innerHTML += '<br />'
             + '来源: Phoenix<br />'
-            + '文章作者: <br />'
+            + '文章作者: Phoenix<br />'
             + '文章链接: <a href="' + url + '">' + url + '</a><br />'
             + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
 
@@ -1051,7 +1084,7 @@
                 <span id="year">2021</span>
             
             <span id="year">2021</span>
-            <a href="/about" target="_blank"></a>
+            <a href="/about" target="_blank">Phoenix</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
             |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
             <br>

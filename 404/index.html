@@ -38,15 +38,7 @@
   <script type="text/javascript"> var OriginTitile = document.title, st; 
       document.addEventListener("visibilitychange", function () { document.hidden ? (document.title = "Σ(っ °Д °;)っ喔哟，崩溃啦！", clearTimeout(st)) : (document.title = "φ(゜▽゜*)♪咦，又好了！", st = setTimeout(function () { document.title = OriginTitile }, 3e3)) }) </script>
         
- 
-    <script type="text/javascript"> 
-    //只在桌面版网页启用特效 
-    var windowWidth = $(window).width(); 
-    if (windowWidth > 768) { 
-        document.write('<script type="text/javascript" src="/js/sakura.js"></script>'); 
-    }
-    </script> 
-
+<script src="/js/sakura.js">
 
 <!-- 天气接口 -->
     
@@ -54,12 +46,9 @@
 <script type="text/javascript">
     WIDGET = {FID: '1tFpFZ5Mtj'}
   </script>
+<!-- <script type="text/javascript" src="https://apip.weatherdt.com/float/static/js/r.js?v=1111"></script> -->
 <script type="text/javascript">
-    //只在桌面版网页启用特效
-    var windowWidth = $(window).width();
-    if (windowWidth > 768) {
-        document.write('<script type="text/javascript" src="https://apip.weatherdt.com/float/static/js/r.js?v=1111"><\/script>');
-        }
+     document.write('<script type="text/javascript" src="https://apip.weatherdt.com/float/static/js/r.js?v=1111"><\/script>');
   </script>
 
       
@@ -333,6 +322,9 @@
 </a>
         
     </nav>
+  <!-- 今日诗词特效 -->
+    <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+
 
 </header>
 
@@ -431,7 +423,7 @@
                 <span id="year">2021</span>
             
             <span id="year">2021</span>
-            <a href="/about" target="_blank"></a>
+            <a href="/about" target="_blank">Phoenix</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
             |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
             <br>
