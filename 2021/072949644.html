@@ -473,7 +473,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-07-29
+                    2021-07-30
                 </div>
                 
 
@@ -483,14 +483,14 @@
     <i class="fa fa-pencil"></i> 作者: Phoenix
     
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    9.3k
+                    9.7k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    43 分
+                    45 分
                 </div>
                 
 
@@ -1752,70 +1752,88 @@ Polynomial <span class="token function">MultPolynomial</span><span class="token 
 <td>188 KB</td>
 </tr>
 </tbody></table>
-<h3 id="3-Reverse-Linked-List"><a href="#3-Reverse-Linked-List" class="headerlink" title="3.Reverse Linked List"></a><a target="_blank" rel="noopener" href="https://pintia.cn/problem-sets/16/problems/699">3.Reverse Linked List</a></h3><p>根据某大公司笔试题改编的2014年春季PAT真题</p>
-<p>Write a nonrecursive procedure to reverse a singly linked list in <em>O</em>(<em>N</em>) time using constant extra space.</p>
-<h4 id="Format-of-functions"><a href="#Format-of-functions" class="headerlink" title="Format of functions:"></a>Format of functions:</h4><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">List Reverse( List L );<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="3-Reverse-Linked-List"><a href="#3-Reverse-Linked-List" class="headerlink" title="3.Reverse Linked List"></a><a target="_blank" rel="noopener" href="https://pintia.cn/problem-sets/16/problems/664">3.Reverse Linked List</a></h3><p>根据某大公司笔试题改编的2014年春季PAT真题</p>
+<p>Given a constant <em>K</em> and a singly linked list <em>L</em>, you are supposed to reverse the links of every <em>K</em> elements on <em>L</em>. For example, given <em>L</em> being 1→2→3→4→5→6, if <em>K</em>=3, then you must output 3→2→1→6→5→4; if <em>K</em>=4, you must output 4→3→2→1→5→6.</p>
+<h4 id="Input-Specification"><a href="#Input-Specification" class="headerlink" title="Input Specification:"></a>Input Specification:</h4><p>Each input file contains one test case. For each case, the first line contains the address of the first node, a positive <em>N</em> (≤105) which is the total number of nodes, and a positive <em>K</em> (≤<em>N</em>) which is the length of the sublist to be reversed. The address of a node is a 5-digit nonnegative integer, and NULL is represented by -1.</p>
+<p>Then <em>N</em> lines follow, each describes a node in the format:</p>
+<pre class="line-numbers language-none"><code class="language-none">Address Data Next<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p>where <code>List</code> is defined as the following:</p>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">typedef struct Node *PtrToNode;
-typedef PtrToNode List;
-typedef PtrToNode Position;
-struct Node &#123;
-    ElementType Element;
-    Position Next;
-&#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>where <code>Address</code> is the position of the node, <code>Data</code> is an integer, and <code>Next</code> is the position of the next node.</p>
+<h4 id="Output-Specification"><a href="#Output-Specification" class="headerlink" title="Output Specification:"></a>Output Specification:</h4><p>For each case, output the resulting ordered linked list. Each node occupies a line, and is printed in the same format as in the input.</p>
+<h4 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input:"></a>Sample Input:</h4><pre class="line-numbers language-in" data-language="in"><code class="language-in">00100 6 4
+00000 4 99999
+00100 1 12309
+68237 6 -1
+33218 3 00000
+99999 5 68237
+12309 2 33218<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>The function <code>Reverse</code> is supposed to return the reverse linked list of <code>L</code>, with a dummy header.</p>
-<h4 id="Sample-program-of-judge"><a href="#Sample-program-of-judge" class="headerlink" title="Sample program of judge:"></a>Sample program of judge:</h4><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;stdio.h&gt;
-#include &lt;stdlib.h&gt;
+<h4 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output:"></a>Sample Output:</h4><pre class="line-numbers language-out" data-language="out"><code class="language-out">00000 4 33218
+33218 3 12309
+12309 2 00100
+00100 1 99999
+99999 5 68237
+68237 6 -1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-typedef int ElementType;
-typedef struct Node *PtrToNode;
-typedef PtrToNode List;
-typedef PtrToNode Position;
-struct Node &#123;
-    ElementType Element;
-    Position Next;
-&#125;;
-
-List Read(); &#x2F;* details omitted *&#x2F;
-void Print( List L ); &#x2F;* details omitted *&#x2F;
-List Reverse( List L );
-
-int main()
-&#123;
-    List L1, L2;
-    L1 &#x3D; Read();
-    L2 &#x3D; Reverse(L1);
-    Print(L1);
-    Print(L2);
-    return 0;
-&#125;
-
-&#x2F;* Your function will be put here *&#x2F;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h4 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input:"></a>Sample Input:</h4><pre class="line-numbers language-in" data-language="in"><code class="language-in">5
-1 3 4 5 2<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<h4 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output:"></a>Sample Output:</h4><pre class="line-numbers language-out" data-language="out"><code class="language-out">2 5 4 3 1
-2 5 4 3 1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<h4 id="思路-2"><a href="#思路-2" class="headerlink" title="思路"></a>思路</h4><p>$O(N)$时间内逆转链表，老老实实逆转，不要刷小聪明（doge）,注意空链表即可。</p>
-<h4 id="AC-code-2"><a href="#AC-code-2" class="headerlink" title="AC code"></a>AC code</h4><pre class="line-numbers language-c" data-language="c"><code class="language-c">List <span class="token function">Reverse</span><span class="token punctuation">(</span>List L<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>L<span class="token operator">-></span>Next<span class="token punctuation">)</span>
-        <span class="token keyword">return</span> L<span class="token punctuation">;</span>
-    List new <span class="token operator">=</span> L<span class="token operator">-></span>Next<span class="token punctuation">;</span>
-    List old <span class="token operator">=</span> new<span class="token operator">-></span>Next<span class="token punctuation">;</span>
-    <span class="token keyword">while</span> <span class="token punctuation">(</span>old<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        List tmp <span class="token operator">=</span> old<span class="token operator">-></span>Next<span class="token punctuation">;</span>
-        old<span class="token operator">-></span>Next <span class="token operator">=</span> new<span class="token punctuation">;</span>
+<h4 id="思路-2"><a href="#思路-2" class="headerlink" title="思路"></a>思路</h4><p>这里考虑利用三个数组，先记录下Address、Data、Next，然后将其转化为顺序表存储，再利用数组可以直接方便地逆转。</p>
+<p>特别地，以下还给出一段基于链表的逆转思路</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c">Ptr <span class="token function">Reverse</span><span class="token punctuation">(</span>Ptr head<span class="token punctuation">,</span> <span class="token keyword">int</span> K<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    cnt <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    new <span class="token operator">=</span> head<span class="token operator">-></span>next<span class="token punctuation">;</span>
+    old <span class="token operator">=</span> new<span class="token operator">-></span>next<span class="token punctuation">;</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>cnt <span class="token operator">&lt;</span> K<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        tmp <span class="token operator">=</span> old<span class="token operator">-></span>next<span class="token punctuation">;</span>
+        old<span class="token operator">-></span>next <span class="token operator">=</span> new<span class="token punctuation">;</span>
         new <span class="token operator">=</span> old<span class="token punctuation">;</span>
         old <span class="token operator">=</span> tmp<span class="token punctuation">;</span>
+        cnt<span class="token operator">++</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
-    L<span class="token operator">-></span>Next<span class="token operator">-></span>Next <span class="token operator">=</span> old<span class="token punctuation">;</span>
-    L<span class="token operator">-></span>Next <span class="token operator">=</span> new<span class="token punctuation">;</span>
-    <span class="token keyword">return</span> L<span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    head<span class="token operator">-></span>next<span class="token operator">-></span>next <span class="token operator">=</span> old<span class="token punctuation">;</span>
+    <span class="token keyword">return</span> new<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="AC-code-2"><a href="#AC-code-2" class="headerlink" title="AC code"></a>AC code</h4><pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">MaxSize</span> <span class="token expression"><span class="token number">100005</span></span></span>
+<span class="token keyword">int</span> Data<span class="token punctuation">[</span>MaxSize<span class="token punctuation">]</span><span class="token punctuation">,</span> Next<span class="token punctuation">[</span>MaxSize<span class="token punctuation">]</span><span class="token punctuation">,</span> Address<span class="token punctuation">[</span>MaxSize<span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> FirstAdd<span class="token punctuation">,</span> N<span class="token punctuation">,</span> K<span class="token punctuation">;</span>
+
+<span class="token keyword">int</span> <span class="token function">read</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">int</span> num <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> symbol <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token keyword">char</span> ch <span class="token operator">=</span> <span class="token function">getchar</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>ch <span class="token operator">&lt;</span> <span class="token string">'0'</span> <span class="token operator">||</span> ch <span class="token operator">></span> <span class="token string">'9'</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>ch <span class="token operator">==</span> <span class="token string">'-'</span><span class="token punctuation">)</span> symbol <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+        ch <span class="token operator">=</span> <span class="token function">getchar</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>ch <span class="token operator">>=</span> <span class="token string">'0'</span> <span class="token operator">&amp;&amp;</span> ch <span class="token operator">&lt;=</span> <span class="token string">'9'</span><span class="token punctuation">)</span>
+        num <span class="token operator">=</span> <span class="token punctuation">(</span>num <span class="token operator">&lt;&lt;</span> <span class="token number">3</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token punctuation">(</span>num <span class="token operator">&lt;&lt;</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token punctuation">(</span>ch <span class="token operator">-</span> <span class="token string">'0'</span><span class="token punctuation">)</span><span class="token punctuation">,</span> ch <span class="token operator">=</span> <span class="token function">getchar</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> num <span class="token operator">*</span> symbol<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d %d %d"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>FirstAdd<span class="token punctuation">,</span> <span class="token operator">&amp;</span>N<span class="token punctuation">,</span> <span class="token operator">&amp;</span>K<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> N<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">int</span> tmpAdd<span class="token punctuation">,</span> tmpData<span class="token punctuation">,</span> tmpNext<span class="token punctuation">;</span>
+        tmpAdd <span class="token operator">=</span> <span class="token function">read</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> tmpData <span class="token operator">=</span> <span class="token function">read</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> tmpNext <span class="token operator">=</span> <span class="token function">read</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        Data<span class="token punctuation">[</span>tmpAdd<span class="token punctuation">]</span> <span class="token operator">=</span> tmpData<span class="token punctuation">;</span>
+        Next<span class="token punctuation">[</span>tmpAdd<span class="token punctuation">]</span> <span class="token operator">=</span> tmpNext<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">int</span> cnt <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>FirstAdd <span class="token operator">!=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        Address<span class="token punctuation">[</span>cnt<span class="token operator">++</span><span class="token punctuation">]</span> <span class="token operator">=</span> FirstAdd<span class="token punctuation">;</span>
+        FirstAdd <span class="token operator">=</span> Next<span class="token punctuation">[</span>FirstAdd<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> cnt <span class="token operator">-</span> cnt <span class="token operator">%</span> K<span class="token punctuation">;</span> i <span class="token operator">+=</span> K<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> K <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">int</span> t <span class="token operator">=</span> Address<span class="token punctuation">[</span>i <span class="token operator">+</span> j<span class="token punctuation">]</span><span class="token punctuation">;</span>
+            Address<span class="token punctuation">[</span>i <span class="token operator">+</span> j<span class="token punctuation">]</span> <span class="token operator">=</span> Address<span class="token punctuation">[</span>i <span class="token operator">+</span> K <span class="token operator">-</span> j <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+            Address<span class="token punctuation">[</span>i <span class="token operator">+</span> K <span class="token operator">-</span> j <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> t<span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> cnt <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
+        <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%05d %d %05d\n"</span><span class="token punctuation">,</span> Address<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span> Data<span class="token punctuation">[</span>Address<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span> Address<span class="token punctuation">[</span>i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%05d %d -1\n"</span><span class="token punctuation">,</span> Address<span class="token punctuation">[</span>cnt <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> Data<span class="token punctuation">[</span>Address<span class="token punctuation">[</span>cnt <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <table>
 <thead>
@@ -1830,41 +1848,65 @@ int main()
 </thead>
 <tbody><tr>
 <td>0</td>
-<td>同sample，整数，一般情况</td>
+<td>sample 有尾巴不反转, 地址取上下界</td>
 <td>答案正确</td>
-<td>11</td>
-<td>4 ms</td>
-<td>188 KB</td>
+<td>12</td>
+<td>5 ms</td>
+<td>316 KB</td>
 </tr>
 <tr>
 <td>1</td>
-<td>只有1个结点</td>
+<td>正好全反转</td>
 <td>答案正确</td>
 <td>3</td>
-<td>4 ms</td>
-<td>184 KB</td>
+<td>5 ms</td>
+<td>208 KB</td>
 </tr>
 <tr>
 <td>2</td>
-<td>2个结点</td>
+<td>K=N全反转</td>
 <td>答案正确</td>
-<td>3</td>
+<td>2</td>
 <td>4 ms</td>
-<td>188 KB</td>
+<td>320 KB</td>
 </tr>
 <tr>
 <td>3</td>
-<td>空链表</td>
+<td>K=1不用反转</td>
+<td>答案正确</td>
+<td>2</td>
+<td>5 ms</td>
+<td>320 KB</td>
+</tr>
+<tr>
+<td>4</td>
+<td>N=1 最小case</td>
+<td>答案正确</td>
+<td>2</td>
+<td>4 ms</td>
+<td>192 KB</td>
+</tr>
+<tr>
+<td>5</td>
+<td>最大N,最后剩K-1不反转</td>
 <td>答案正确</td>
 <td>3</td>
+<td>35 ms</td>
+<td>3132 KB</td>
+</tr>
+<tr>
+<td>6</td>
+<td>有多余结点不在链表上</td>
+<td>答案正确</td>
+<td>1</td>
 <td>4 ms</td>
-<td>164 KB</td>
+<td>320 KB</td>
 </tr>
 </tbody></table>
 <h3 id="4-Pop-Sequence"><a href="#4-Pop-Sequence" class="headerlink" title="4.Pop Sequence"></a><a target="_blank" rel="noopener" href="https://pintia.cn/problem-sets/16/problems/665">4.Pop Sequence</a></h3><p>2013年PAT春季考试真题</p>
 <p>Given a stack which can keep <em>M</em> numbers at most. Push <em>N</em> numbers in the order of 1, 2, 3, …, <em>N</em> and pop randomly. You are supposed to tell if a given sequence of numbers is a possible pop sequence of the stack. For example, if <em>M</em> is 5 and <em>N</em> is 7, we can obtain 1, 2, 3, 4, 5, 6, 7 from the stack, but not 3, 2, 1, 7, 5, 6, 4.</p>
-<h4 id="Input-Specification"><a href="#Input-Specification" class="headerlink" title="Input Specification:"></a>Input Specification:</h4><p>Each input file contains one test case. For each case, the first line contains 3 numbers (all no more than 1000): <em>M</em> (the maximum capacity of the stack), <em>N</em> (the length of push sequence), and <em>K</em> (the number of pop sequences to be checked). Then <em>K</em> lines follow, each contains a pop sequence of <em>N</em> numbers. All the numbers in a line are separated by a space.</p>
-<h4 id="Output-Specification"><a href="#Output-Specification" class="headerlink" title="Output Specification:"></a>Output Specification:</h4><p>For each pop sequence, print in one line “YES” if it is indeed a possible pop sequence of the stack, or “NO” if not.</p>
+<h4 id="Input-Specification-1"><a href="#Input-Specification-1" class="headerlink" title="Input Specification:"></a>Input Specification:</h4><p>Each input file contains one test case. For each case, the first line contains 3 numbers (all no more than 1000): <em>M</em> (the maximum capacity of the stack), <em>N</em> (the length of push sequence), and <em>K</em> (the number of pop sequences to be checked). Then <em>K</em> lines follow, each contains a pop sequence of <em>N</em> numbers. All the numbers in a line are separated by a space.</p>
+<h4 id="Output-Specification-1"><a href="#Output-Specification-1" class="headerlink" title="Output Specification:"></a>Output Specification:</h4><p>For each pop sequence, print in one line “YES” if it is indeed a possible pop sequence of the stack, or “NO” if not.</p>
 <h4 id="Sample-Input-1"><a href="#Sample-Input-1" class="headerlink" title="Sample Input:"></a>Sample Input:</h4><pre class="line-numbers language-in" data-language="in"><code class="language-in">5 7 5
 1 2 3 4 5 6 7
 3 2 1 7 5 6 4
@@ -2200,17 +2242,16 @@ NO<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/072949644.html">
+                <a href="/2021/0730301.html">
                     <div class="card-image">
                         
-                        <img src="/images/r.jpg" class="responsive-img" alt="数据结构week2">
+                        <img src="/images/s.jpg" class="responsive-img" alt="数据结构week3">
                         
-                        <span class="card-title">数据结构week2</span>
+                        <span class="card-title">数据结构week3</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -2220,9 +2261,9 @@ NO<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-07-29
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-07-30
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -2235,7 +2276,6 @@ NO<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
@@ -2526,7 +2566,7 @@ NO<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">26.8k</span>&nbsp;字
+                class="white-color">33.3k</span>&nbsp;字
             
             
             
