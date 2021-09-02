@@ -4,7 +4,7 @@
 
 <head>
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-    <meta name="keywords" content="Wiener Attack, Phoenix">
+    <meta name="keywords" content="编码, Phoenix">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Wiener Attack | Phoenix</title>
+    <title>编码 | Phoenix</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -320,12 +320,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Wiener Attack</h1>
+                    <h1 class="description center-align post-title">编码</h1>
                 </div>
             </div>
         </div>
@@ -445,6 +445,10 @@
                                 <span class="chip bg-color">crypto</span>
                             </a>
                         
+                            <a href="/tags/%E5%A4%87%E4%BB%BD/">
+                                <span class="chip bg-color">备份</span>
+                            </a>
+                        
                     </div>
                     
                 </div>
@@ -466,14 +470,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-08-19
+                    2021-09-02
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-08-19
+                    2021-09-02
                 </div>
                 
 
@@ -483,14 +487,14 @@
     <i class="fa fa-pencil"></i> 作者: Phoenix
     
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.5k
+                    1.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    12 分
+                    6 分
                 </div>
                 
 
@@ -513,88 +517,238 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Wiener-Attack"><a href="#Wiener-Attack" class="headerlink" title="Wiener Attack"></a>Wiener Attack</h1><h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>又到了每周四的没有碧蓝航线玩好无聊时间，维纳攻击的脚本自己曾经写过，但是遇到大整数的时候会发生错误，前天拜读了z2333大佬的维纳攻击详解之后，正好今天无事，找来那两篇论文，再推导一遍，重新整理了一下，突然解决了之前的bug（doge）。</p>
-<p>以下内容默认掌握一定RSA基础及相关数论知识。</p>
-<h2 id="Wiener-Attack简介（太长不看版）"><a href="#Wiener-Attack简介（太长不看版）" class="headerlink" title="Wiener Attack简介（太长不看版）"></a>Wiener Attack简介（太长不看版）</h2><p>我们从RSA的私钥开始<br>$$<br>ed-1=k\varphi(n)<br>$$<br>变形<br>$$<br>\frac{e}{\varphi(n)}-\frac{k}{d}=\frac{1}{d\varphi(n)}<br>$$<br>考虑到$\varphi(n)=(p-1)(q-1)\approx pq=n$​）<br>$$<br>\mid \frac{e}{n}-\frac{k}{d} \mid=\frac{1}{d\varphi(n)}<br>$$<br>$d\phi(n)$是一个很大的数，所以不难由上式得到$\frac{e}{n}$接近$\frac{k}{d}$</p>
-<p>为啥要这么写呢，因为$e$和$n$是我们是知道的，所以我们计算出$\frac{e}{n}$后，$\frac{k}{d}$怎么出来呢，计算$\frac{e}{n}$的连分数展开，依次算出这个分数每一个渐进分数，由于$\frac{e}{n}$接近$\frac{k}{d}$，$wiener$证明了，该攻击能精确的覆盖$\frac{k}{d}$，前提是$d&lt;\frac{1}{3}n^{\frac{1}{4}}$。</p>
-<p>最终我们能算出$\phi(n)$从而最构造如下二次方程<br>$$<br>x^2-(p+q)x+pq=x^2-(n-\varphi(n)+1)x+n=0<br>$$<br>最终解得两根$p、q$。</p>
-<h2 id="推导"><a href="#推导" class="headerlink" title="推导"></a>推导</h2><h3 id="维纳攻击基本原理"><a href="#维纳攻击基本原理" class="headerlink" title="维纳攻击基本原理"></a>维纳攻击基本原理</h3><p>维纳攻击通常被描述成如下形式</p>
-<p>如果$p&lt;q&lt;2p,e&lt;n,d&lt;\frac{1}{3}n^\frac{1}{4}，$​​那么$d$​是$\frac{e}{n}$连分数展开的一个分母。​​</p>
-<p>从如下最基本的式子开始<br>$$<br>ed\equiv 1\ (mod\ \varphi(n))<br>$$<br>则$\exists k\in Z,st\ ed-k\varphi(n)=1$​。现在$\varphi(n)\approx n$​隐含$\frac{k}{d}\approx\frac{e}{n}$​。更精确些，我们有$n-3\sqrt{n}&lt;\varphi(n)&lt;n$​以及<br>$$<br>\mid \frac{k}{d}-\frac{e}{n} \mid &lt;\frac{3k}{d\sqrt{n}} &lt;\frac{1}{2d^2}(*)<br>$$<br>先证$n-3\sqrt{n}&lt;\varphi(n)&lt;n$。不等式的​​右边显然成立，左边可化简成<br>$$<br>pq-3\sqrt{pq}&lt;pq-(p+q)+1<br>$$</p>
-<p>$$<br>\iff p-3\sqrt{pq}+q&lt;1<br>$$</p>
-<p>$$<br>\iff \frac{p}{q}-3\sqrt{\frac{p}{q}}+1&lt;\frac{1}{q}<br>$$</p>
-<p>令$t=\frac{p}{q}&lt;\in(\frac{1}{2},1)$​,<br>$$<br>\iff (t-\frac{3}{2})^2 (\in(\frac{1}{4},1))&lt; \frac{5}{4}+\frac{1}{q}<br>$$<br>再看$(*)$式<br>$$<br>\mid \frac{k}{d}-\frac{e}{n} \mid = \mid \frac{k}{d}-\frac{e}{\varphi(n)}\frac{\varphi(n)}{n}\mid<br>$$<br>利用<br>$$<br>\frac{e}{\varphi(n)}-\frac{k}{d}=\frac{1}{d\varphi(n)}<br>$$<br>有<br>$$<br>\mid \frac{k}{d}-\frac{e}{n} \mid = \mid \frac{k}{d}-(\frac{k}{d}+\frac{1}{d\varphi(n)})\frac{\varphi(n)}{n}\ \mid=\mid \frac{k}{d}(1-\frac{\varphi(n)}{n}-\frac{1}{kn}) \mid<br>$$<br>而由$n-3\sqrt{n}&lt;\varphi(n)&lt;n$​知$1-\frac{3}{\sqrt{n}}&lt;\frac{\varphi(n)}{n}&lt;1$​，从而<br>$$<br>\mid \frac{k}{d}-\frac{e}{n} \mid &lt; \mid \frac{k}{d}\frac{3}{\sqrt{n}} \mid =\frac{3k}{d\sqrt{n}}<br>$$<br>由$RSA$原理知，$ed=k\varphi(n)+1&gt;k\varphi(n)$且$e&lt;\varphi(n)$，从而$k&lt;d&lt;\frac{1}{3}n^{\frac{1}{4}}$​，故<br>$$<br>\mid \frac{k}{d}-\frac{e}{n} \mid &lt;\frac{3k}{d\sqrt{n}} &lt; \frac{1}{dn^{\frac{1}{4}}}&lt;\frac{1}{2d^2}<br>$$<br>由勒让德理论$(Legendre’s\ theorem)$​​​，若$|\alpha-\frac{a}{b}|&lt;\frac{1}{2b^2}$​​​，其中$\alpha $​​​为分数，$a、b$为不互质的正整数，那么$\frac{a}{b}$​为$\alpha$的一个收敛分数。</p>
-<p>以下为勒让德理论的证明。</p>
-<h3 id="勒让德理论"><a href="#勒让德理论" class="headerlink" title="勒让德理论"></a>勒让德理论</h3><p>在证明前首先证明两个定理</p>
-<h4 id="定理1"><a href="#定理1" class="headerlink" title="定理1"></a>定理1</h4><p><strong>连分数提供了实数$\alpha$和整数序列$a_0,a_1,\cdots,(a_i\geq1,i&gt;0)$​​之间的一一映射。整数序列终止当且仅当$\alpha$是一个有理数，此时$\alpha=[a_0;a_1,\cdots,a_n],a_n&gt;1$​​。</strong></p>
-<p>连分数表示为以下形式<br>$$<br>a_0 + \frac {1}{a_1 + \frac {1}{a_2 + \frac {1}{… + \frac {1}{a_n}}}}<br>$$<br>通常也写成$a_0+\frac{1}{a_1+}\frac{1}{a_2+}\cdots\frac{1}{a_n}$​或者$[a_0;a_1,a_2,\cdots,a_n]$。其中$a_0 \in Z$，$a_1,\cdots,a_n$​是正整数，通常认为$a_n&gt;1$​​。显然任何有限连分数都表示一个有理数。相反地，如果$(b_0,r_0)=1$​那么由辗转相除法可以得到<br>$$<br>b_0=a_0r_0+r_1,\ \  0\leq r_1&lt;r_0<br>$$</p>
-<p>$$<br>r_0=a_1r_1+r_2,\ \  0\leq r_2&lt;r_1<br>$$</p>
-<p>$$<br>r_1=a_2r_2+r_3,\ \  0\leq r_3&lt;r_2<br>$$</p>
-<p>$$<br>\cdots<br>$$</p>
-<p>上述过程必定在有限步终止于<br>$$<br>r_{n-1}=a_nr_n<br>$$<br>现在<br>$$<br>\begin{aligned}<br>    \frac{b_0}{r_0}<br>    &amp;= a_0+\frac{r_1}{r_0}=a_0+\frac{1}{\frac{r_0}{r_1}}\newline<br>    &amp;= a_0+\frac{a_1}{\frac{r_2}{r_1}}\newline<br>    &amp;= [a_0;a_1,a_2,\cdots,a_n]<br>\end{aligned}<br>$$<br>这个过程表明了有理数$\frac{b_0}{r_0}$​和有限序列$a_0,a_1,\cdots,a_n(a_1\geq1,\cdots,a_{n-1}\geq1,a_n&gt;1)$​​​之间一一对应的关系。</p>
-<p>在证明无理数情形前，先证明两个引理</p>
-<h5 id="引理1"><a href="#引理1" class="headerlink" title="引理1"></a>引理1</h5><p>考虑<br>$$<br>p_{-2}=0,p_{-1}=1,p_m=a_mp_{m-1}+p_{m-2}\ \ (m\geq0)<br>$$</p>
-<p>$$<br>q_{-2}=1,q_{-1}=0,q_m=a_mq_{m-1}+q_{m-2}\ \ (m\geq0)<br>$$</p>
-<p>那么$p_m$​和$q_m$​是以$a_0,\cdots,a_m$​为系数的多项式，它们具有如下关系<br>$$<br>p_mq_{m-1}-p_{m-1}q_m=(-1)^{m-1}\ \ (m\geq-1)<br>$$<br>以下用归纳法证明。对于$m=-1$和$m=0$显然成立，假设对$m-1$成立，那么<br>$$<br>\begin{aligned}<br>    p_mq_{m-1}-p_{m-1}q_m<br>    &amp;= (a_mp_{m-1}+p_{m-2})q_{m-1}-p_{m-1}(a_mq_{m-1}+q_{m-2})\newline<br>    &amp;= -(p_{m-1}q_{m-2}-p_{m-2}q_{m-1})=-(-1)^{m-2}\newline<br>    &amp;= (-1)^{m-1}<br>\end{aligned}<br>$$</p>
-<h5 id="引理2"><a href="#引理2" class="headerlink" title="引理2"></a>引理2</h5><p>$$<br>[a_0;a_1,a_2,\cdots,a_m]=\frac{p_m}{q_m}\ \ (m\geq0)<br>$$</p>
-<p>对$m=0$来说是显然的，假设对$m-1$成立，那么<br>$$<br>\begin{aligned}<br>    \left[a_0;a_1,a_2,\cdots,a_m\right]<br>    &amp;= \left[a_0;a_1,\cdots,a_{m-1}+\frac{1}{a_m}\right]\newline<br>    &amp;= \frac{p_{m-1}^{‘}}{q_{m-1}^{‘}}\newline<br>    &amp;= \frac{(a_m-1+\frac{1}{a_m})p_{m-2}+p_{m-3}}{(a_m-1+\frac{1}{a_m})q_{m-2}+q_{m-3}}\newline<br>    &amp;= \frac{a_{m}(a_{m-1}p_{m-2}+p_{m-3})+p_{m-2}}{a_{m}(a_{m-1}q_{m-2}+q_{m-3})+q_{m-2}}\newline<br>    &amp;= \frac{a_mp_{m-1}+p_{m-2}}{a_mq_{m-1}+q_{m-2}}\newline<br>    &amp;= \frac{p_m}{q_m}<br>\end{aligned}<br>$$<br>其中，$p_{m-1}^{‘}$和$q_{m-1}^{‘}$以$a_0,a_1,\cdots,a_{m-2},a_{m-1}+\frac{1}{a_m}$为多项式系数。</p>
-<p>假设$\alpha$是一个无理数。令$a_0=[\alpha],\alpha=a_0+\frac{1}{\alpha_1}$，那么$\alpha_1&gt;1$；令$a_1=[\alpha_1],\alpha_1=a_1+\frac{1}{\alpha_2}$，重复上述过程，我们得到$\alpha=[a_0;a_1,a_2,\cdots,a_{n-1},\alpha_n]$​，这里定义了整数序列$a_0,a_1&gt;0,a_2&gt;0,\cdots$，实数序列$\alpha_1,\alpha_2,\cdots&gt;1$​，以及相应的整数$p_n,q_n$。下证$\frac{p_n}{q_n}\rightarrow\alpha$</p>
-<p>首先观察<br>$$<br>\begin{aligned}<br>    \frac{p_n}{q_n}<br>    &amp;= a_0+\sum_{m=1}^{n}\left(\frac{p_m}{q_m}-\frac{p_{m-1}}{q_{m-1}}\right)\newline<br>    &amp;= a_0+\sum_{m-1}^{n}\frac{(-1)^{m-1}}{q_{m-1}q_m}<br>\end{aligned}<br>$$<br>$q_i&gt;0(i\geq1)$​​并且严格单调递增$(q_m-q_{m-1}=(a_m-1)q_m-1+q_{m-2}&gt;0)$​​，因此$q_i\rightarrow \infin$​​（事实上$q_i\geq f_i$​​，$f_i$​​为斐波那契数列，这由递推式易知，从而$q_i&gt; c^i,c&gt;1$​​）。因此​​，由莱布尼茨判别法知级数收敛，从而$\frac{p_n}{q_n}$​收敛。并且<br>$$<br>\alpha=\frac{p_{n+1}}{q_{n+1}}=\frac{\alpha_{n+1}p_n+p_{n-1}}{\alpha_{n+1}q_n+q_{n-1}}<br>$$<br>因此<br>$$<br>\alpha-\frac{p_n}{q_n}=\frac{q_np_{n-1}-p_nq_{n-1}}{q_n(\alpha_{n+1}q_n+q_{n-1})}=\frac{(-1)^n}{q_n(\alpha_{n+1}q_n+q_{n-1})}<br>$$<br>由上可知$\alpha$收敛，即$\lim_{n\rightarrow \infin} p_n/q_n=\alpha$，写成<br>$$<br>\alpha=\alpha=[a_0;a_1,a_2,\cdots].<br>$$<br>相反地，对于整数序列，反过去构造即对应一个无理数。</p>
-<p>综上证毕</p>
-<h4 id="定理2"><a href="#定理2" class="headerlink" title="定理2"></a>定理2</h4><p>$||q_1\alpha||&gt;||q_2\alpha||&gt;\cdots,$当$0&lt;q&lt;q_n,$有$||q\alpha||\geq||q_{n-1}\alpha||$</p>
-<p>首先记号$||\theta||=\underset{n\in \mathbb{Z}}{min}|\theta-n|,\theta\in R$</p>
-<p>由<br>$$<br>\alpha-\frac{p_n}{q_n}=\frac{q_np_{n-1}-p_nq_{n-1}}{q_n(\alpha_{n+1}q_n+q_{n-1})}=\frac{(-1)^n}{q_n(\alpha_{n+1}q_n+q_{n-1})}<br>$$<br>得<br>$$<br>||q_n\alpha||=|q_n\alpha-p_n|=\frac{1}{\alpha_{n+1}q_n+q_{n-1}}<br>$$<br>$||q_n\alpha||$​单调递减等价于$\alpha_{n+1}q_n+q_{n-1}$​单调递增<br>$$<br>\alpha_{n+1}q_n+q_{n-1}\geq q_n+q_{n-1}=a_nq_{n-1}+q_{n-2}+q_{n-1}=(a_n+1)q_{n-1}+q_{n-2}&gt;\alpha_nq_{n-1}+q_{n-2}<br>$$<br>前半部分证毕。</p>
-<p>现假设$0&lt;q&lt;q_n$，首先证明一个引理</p>
-<h5 id="引理3"><a href="#引理3" class="headerlink" title="引理3"></a>引理3</h5><p>对$\forall$整数$p、q,$$\exists$整数$x、y$使得<br>$$<br>q=q_nx+q_{n-1}y,<br>$$</p>
-<p>$$<br>p=p_nx+p_{n-1}y.<br>$$</p>
-<p>注意到写成矩阵形式<br>$$<br>\left(<br>\begin{matrix}<br>q  \newline<br>p<br>\end{matrix}<br>\right)<br>=<br>\left(<br>\begin{matrix}<br>q_n &amp; q_{n-1}  \newline<br>p_n &amp; p_{n-1}<br>\end{matrix}<br>\right)<br>\left(<br>\begin{matrix}<br>x  \newline<br>y<br>\end{matrix}<br>\right)<br>$$<br>系数矩阵行列式为$p_{n-1}q_n-p_nq_{n-1}=(-1)^n$​，因此$p、q$为整数等价于$x、y$​为整数。</p>
-<p>①$x=0,$则$q\alpha-p=y(q_{n-1}\alpha-p_{n-1}),$从而$|q\alpha-p|=|y||q_{n-1}\alpha|\geq|q_{n-1}\alpha|$​</p>
-<p>②$y=0,$​则$q=q_nx\geq q_n,$矛盾！</p>
-<p>③$x,y\neq0$，由$0&lt;q=q_nx+q_{n-1}y&lt;q_n$易知$xy$异号。而$q_n\alpha-p_n=\frac{(-1)^n}{\alpha_{n+1}q_n+q_{n-1}}$,$q_{n-1}\alpha-p_{n-1}=\frac{(-1)^{n-1}}{\alpha_nq_{n-1}+q_{n-2}}$,因此$q_n\alpha-p_n$与$q_{n-1}\alpha-p_{n-1}$异号，从而$(q_n\alpha-p_n)x$与$(q_{n-1}\alpha-p_{n-1})y$​同号。因此<br>$$<br>\begin{aligned}<br>    ||q\alpha||=|q\alpha-p|<br>    &amp;=|(q_n\alpha-p_n)x-(q_{n-1}\alpha-p_n)y|\newline<br>    &amp;=|(q_n\alpha-p_n)||x|+|(q_{n-1}\alpha-p_n)||y|\newline<br>    &amp;=||q_n\alpha|||x|+||q_{n-1}\alpha|||y|\geq||q_n\alpha||<br>\end{aligned}<br>$$<br>综上，证毕。</p>
-<h4 id="Legendre"><a href="#Legendre" class="headerlink" title="Legendre"></a>Legendre</h4><p>若$|\alpha-\frac{p}{q}|&lt;\frac{1}{2q^2}$​，且$(p,q)=1$，那么$\exists n,st\ q_n=q$</p>
-<p>选取$n，st\ q_n\leq q &lt; q_{n+1}$​，由于$pq_n-qp_n=q(\alpha q_n-p_n)-q_n(q\alpha-p)$​，有三角不等式<br>$$<br>|pq_n-qp_n|\leq q||q_n\alpha||+q_n||q\alpha||<br>$$<br>由定理2知$||q_n\alpha||\leq||q\alpha||$​，从而<br>$$<br>|pq_n-qp_n|\leq q||q\alpha||+q||q\alpha||=2q^2|\alpha-\frac{p}{q}|&lt;1<br>$$<br>因此$pq_n-qp_n=0$，而$(p_n,q_n)=(p,q)=1$，因此$q=q_n$。证毕。</p>
-<h2 id="算法实现"><a href="#算法实现" class="headerlink" title="算法实现"></a>算法实现</h2><p>简单分析可以知道维纳攻击的时间复杂度是$O(logn)$,关键就在于辗转相除法法那一步。​</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> gmpy2 <span class="token keyword">import</span> iroot
+                <h1 id="编码"><a href="#编码" class="headerlink" title="编码"></a>编码</h1><h2 id="hex"><a href="#hex" class="headerlink" title="hex"></a>hex</h2><p>hex是将信息转化为16进制,密码学中大部分操作都是进行数学计算的过程。我们无法直接对字符串进行数学计算，所以需要将字符串转换为数字。可以通过hex编码的方式进行转换，将原始的字符串转化为十六进制字符串，再进行进一步的数学计算。以下为demon。</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">s <span class="token operator">=</span> <span class="token string">'flag'</span>
+s_by <span class="token operator">=</span> <span class="token builtin">bytes</span><span class="token punctuation">(</span>s<span class="token punctuation">,</span> <span class="token string">'UTF-8'</span><span class="token punctuation">)</span>  <span class="token comment"># 转换成编码</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>s_by<span class="token punctuation">,</span> <span class="token builtin">type</span><span class="token punctuation">(</span>s_by<span class="token punctuation">)</span><span class="token punctuation">)</span>
+s_str <span class="token operator">=</span> s_by<span class="token punctuation">.</span><span class="token builtin">hex</span><span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token comment"># 转换成16进制字符串</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">str</span><span class="token punctuation">,</span> <span class="token builtin">type</span><span class="token punctuation">(</span><span class="token builtin">str</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+s_int <span class="token operator">=</span> <span class="token builtin">int</span><span class="token punctuation">(</span>s_str<span class="token punctuation">,</span> <span class="token number">16</span><span class="token punctuation">)</span>  <span class="token comment"># 转换成10进制整数</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>s_int<span class="token punctuation">,</span> <span class="token builtin">type</span><span class="token punctuation">(</span>s_int<span class="token punctuation">)</span><span class="token punctuation">)</span>
+s_hex <span class="token operator">=</span> <span class="token builtin">hex</span><span class="token punctuation">(</span>s_int<span class="token punctuation">)</span>  <span class="token comment"># 转换成16进制字符串，也可以直接+0x</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>s_hex<span class="token punctuation">,</span> <span class="token builtin">type</span><span class="token punctuation">(</span>s_hex<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">ord</span><span class="token punctuation">(</span><span class="token string">'a'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment"># 对单字符可以直接用ord函数</span>
+num <span class="token operator">=</span> <span class="token number">584734024210391580014049650557280915516226103165</span>
+num_str <span class="token operator">=</span> <span class="token builtin">hex</span><span class="token punctuation">(</span>num<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>num_str<span class="token punctuation">,</span> <span class="token builtin">type</span><span class="token punctuation">(</span>num_str<span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment"># hex结果是字符串</span>
+num_hex <span class="token operator">=</span> num_str<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token comment"># 截取第三个到最后</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>num_hex<span class="token punctuation">)</span>  <span class="token comment">#若有L，则[2:-1]截取到倒数第二个字符串，前闭后开</span>
+flag <span class="token operator">=</span> <span class="token string">''</span>
+<span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token builtin">len</span><span class="token punctuation">(</span>num_hex<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    tmp <span class="token operator">=</span> num_hex<span class="token punctuation">[</span>i<span class="token punctuation">:</span>i <span class="token operator">+</span> <span class="token number">2</span><span class="token punctuation">]</span>
+    flag <span class="token operator">+=</span> <span class="token builtin">chr</span><span class="token punctuation">(</span><span class="token builtin">int</span><span class="token punctuation">(</span>tmp<span class="token punctuation">,</span> <span class="token number">16</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>flag<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>bytes_to_long<span class="token punctuation">(</span><span class="token builtin">bytes</span><span class="token punctuation">(</span><span class="token string">"flag&#123;this_is_a_flag&#125;"</span><span class="token punctuation">,</span> <span class="token string">'UTF-8'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>long_to_bytes<span class="token punctuation">(</span>num<span class="token punctuation">)</span><span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token triple-quoted-string string">'''
+b'flag' &lt;class 'bytes'>
+&lt;class 'str'> &lt;class 'type'>
+1718378855 &lt;class 'int'>
+0x666c6167 &lt;class 'str'>
+97
+0x666c61677b746869735f69735f615f666c61677d &lt;class 'str'>
+666c61677b746869735f69735f615f666c61677d
+flag&#123;this_is_a_flag&#125;
+584734024210391580014049650557280915516226103165
+flag&#123;this_is_a_flag&#125;
+'''</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<span class="token keyword">def</span> <span class="token function">continuedFraction</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    ret <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-    <span class="token keyword">while</span> y<span class="token punctuation">:</span>
-        ret<span class="token punctuation">.</span>append<span class="token punctuation">(</span>x <span class="token operator">//</span> y<span class="token punctuation">)</span>
-        x<span class="token punctuation">,</span> y <span class="token operator">=</span> y<span class="token punctuation">,</span> x <span class="token operator">%</span> y
-    <span class="token keyword">return</span> ret
+<h2 id="urlencode"><a href="#urlencode" class="headerlink" title="urlencode"></a>urlencode</h2><p>urlencode主要用于浏览器和网站之间的数据交换，这种编码是在特殊字符的hex基础上，每个字符前置一个“%”，demon如下：</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> urllib<span class="token punctuation">.</span>parse
+<span class="token keyword">print</span><span class="token punctuation">(</span>urllib<span class="token punctuation">.</span>parse<span class="token punctuation">.</span>quote<span class="token punctuation">(</span><span class="token string">'flag&#123;url_encode_1234_!@#$&#125;'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment">#quote处理字符转义，在特殊字符hex的基础上，每个字符前置一个%</span>
+d<span class="token operator">=</span><span class="token punctuation">&#123;</span><span class="token string">'name'</span><span class="token punctuation">:</span><span class="token string">'bibi@flappypig,club'</span><span class="token punctuation">,</span><span class="token string">'flag'</span><span class="token punctuation">:</span><span class="token string">'flag&#123;url_encode_1234_!@#$&#125;'</span><span class="token punctuation">&#125;</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>urllib<span class="token punctuation">.</span>parse<span class="token punctuation">.</span>urlencode<span class="token punctuation">(</span>d<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token triple-quoted-string string">'''
+flag%7Burl_encode_1234_%21%40%23%24%7D
+name=bibi%40flappypig%2Cclub&amp;flag=flag%7Burl_encode_1234_%21%40%23%24%7D
+quote对字符串进行url编码，可以使用unquote函数进行解码
+urlencode函数对字典模式的键值对进行url编码
+'''</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<span class="token keyword">def</span> <span class="token function">cal</span><span class="token punctuation">(</span>fraction<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token builtin">list</span> <span class="token operator">=</span> fraction
-    <span class="token builtin">list</span><span class="token punctuation">.</span>reverse<span class="token punctuation">(</span><span class="token punctuation">)</span>
-    d <span class="token operator">=</span> <span class="token number">0</span>
-    k <span class="token operator">=</span> <span class="token number">1</span>
-    <span class="token keyword">for</span> x <span class="token keyword">in</span> <span class="token builtin">list</span><span class="token punctuation">:</span>
-        d<span class="token punctuation">,</span> k <span class="token operator">=</span> k<span class="token punctuation">,</span> x <span class="token operator">*</span> k <span class="token operator">+</span> d
-    <span class="token keyword">return</span> <span class="token punctuation">(</span>d<span class="token punctuation">,</span> k<span class="token punctuation">)</span>
+<h2 id="morsecode"><a href="#morsecode" class="headerlink" title="morsecode"></a>morsecode</h2><p>摩斯电码由长音和短音构成的，使用“.”表示短音，“-”表示长音，“/”表示分隔符，解码可以用在线工具列举如下：<br><a target="_blank" rel="noopener" href="https://www.atool99.com/morse.php">https://www.atool99.com/morse.php</a><br><a target="_blank" rel="noopener" href="http://www.zhongguosou.com/zonghe/moErSiCodeConverter.aspx">http://www.zhongguosou.com/zonghe/moErSiCodeConverter.aspx</a><br><a target="_blank" rel="noopener" href="http://www.bejson.com/enc/morse/">http://www.bejson.com/enc/morse/</a><br><a target="_blank" rel="noopener" href="https://www.jb51.net/tools/morse.htm">https://www.jb51.net/tools/morse.htm</a><br>如果碰到摩斯电码与MISC音频题结合起来出题，求稳可以用Cool Edit进行编辑，可以明显观察长音和短音，（自信听力好可以直接听）然后将电码抄录，最后解码。用python进行解码的code如下：</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">alphabet_to_morse <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+    <span class="token string">"A"</span><span class="token punctuation">:</span> <span class="token string">".-"</span><span class="token punctuation">,</span>
+    <span class="token string">"B"</span><span class="token punctuation">:</span> <span class="token string">"-.-."</span><span class="token punctuation">,</span>
+    <span class="token string">"C"</span><span class="token punctuation">:</span> <span class="token string">"-.-."</span><span class="token punctuation">,</span>
+    <span class="token string">"D"</span><span class="token punctuation">:</span> <span class="token string">"-.."</span><span class="token punctuation">,</span>
+    <span class="token string">"E"</span><span class="token punctuation">:</span> <span class="token string">"."</span><span class="token punctuation">,</span>
+    <span class="token string">"F"</span><span class="token punctuation">:</span> <span class="token string">"..-."</span><span class="token punctuation">,</span>
+    <span class="token string">"G"</span><span class="token punctuation">:</span> <span class="token string">"--."</span><span class="token punctuation">,</span>
+    <span class="token string">"H"</span><span class="token punctuation">:</span> <span class="token string">"...."</span><span class="token punctuation">,</span>
+    <span class="token string">"I"</span><span class="token punctuation">:</span> <span class="token string">".."</span><span class="token punctuation">,</span>
+    <span class="token string">"J"</span><span class="token punctuation">:</span> <span class="token string">".---"</span><span class="token punctuation">,</span>
+    <span class="token string">"K"</span><span class="token punctuation">:</span> <span class="token string">"-.-"</span><span class="token punctuation">,</span>
+    <span class="token string">"L"</span><span class="token punctuation">:</span> <span class="token string">".-.."</span><span class="token punctuation">,</span>
+    <span class="token string">"M"</span><span class="token punctuation">:</span> <span class="token string">"--"</span><span class="token punctuation">,</span>
+    <span class="token string">"N"</span><span class="token punctuation">:</span> <span class="token string">"-."</span><span class="token punctuation">,</span>
+    <span class="token string">"O"</span><span class="token punctuation">:</span> <span class="token string">"---"</span><span class="token punctuation">,</span>
+    <span class="token string">"P"</span><span class="token punctuation">:</span> <span class="token string">".--."</span><span class="token punctuation">,</span>
+    <span class="token string">"Q"</span><span class="token punctuation">:</span> <span class="token string">"--.-"</span><span class="token punctuation">,</span>
+    <span class="token string">"R"</span><span class="token punctuation">:</span> <span class="token string">".-."</span><span class="token punctuation">,</span>
+    <span class="token string">"S"</span><span class="token punctuation">:</span> <span class="token string">"..."</span><span class="token punctuation">,</span>
+    <span class="token string">"T"</span><span class="token punctuation">:</span> <span class="token string">"-"</span><span class="token punctuation">,</span>
+    <span class="token string">"U"</span><span class="token punctuation">:</span> <span class="token string">"..-"</span><span class="token punctuation">,</span>
+    <span class="token string">"V"</span><span class="token punctuation">:</span> <span class="token string">"...-"</span><span class="token punctuation">,</span>
+    <span class="token string">"W"</span><span class="token punctuation">:</span> <span class="token string">".--"</span><span class="token punctuation">,</span>
+    <span class="token string">"X"</span><span class="token punctuation">:</span> <span class="token string">"-..-"</span><span class="token punctuation">,</span>
+    <span class="token string">"Y"</span><span class="token punctuation">:</span> <span class="token string">"-.--"</span><span class="token punctuation">,</span>
+    <span class="token string">"Z"</span><span class="token punctuation">:</span> <span class="token string">"--.."</span><span class="token punctuation">,</span>
+    <span class="token string">"0"</span><span class="token punctuation">:</span> <span class="token string">"-----"</span><span class="token punctuation">,</span>
+    <span class="token string">"1"</span><span class="token punctuation">:</span> <span class="token string">".----"</span><span class="token punctuation">,</span>
+    <span class="token string">"2"</span><span class="token punctuation">:</span> <span class="token string">"..---"</span><span class="token punctuation">,</span>
+    <span class="token string">"3"</span><span class="token punctuation">:</span> <span class="token string">"...--"</span><span class="token punctuation">,</span>
+    <span class="token string">"4"</span><span class="token punctuation">:</span> <span class="token string">"....-"</span><span class="token punctuation">,</span>
+    <span class="token string">"5"</span><span class="token punctuation">:</span> <span class="token string">"....."</span><span class="token punctuation">,</span>
+    <span class="token string">"6"</span><span class="token punctuation">:</span> <span class="token string">"-...."</span><span class="token punctuation">,</span>
+    <span class="token string">"7"</span><span class="token punctuation">:</span> <span class="token string">"--..."</span><span class="token punctuation">,</span>
+    <span class="token string">"8"</span><span class="token punctuation">:</span> <span class="token string">"---.."</span><span class="token punctuation">,</span>
+    <span class="token string">"9"</span><span class="token punctuation">:</span> <span class="token string">"----."</span><span class="token punctuation">,</span>
+    <span class="token string">"."</span><span class="token punctuation">:</span> <span class="token string">".-.-.-"</span><span class="token punctuation">,</span>
+    <span class="token string">","</span><span class="token punctuation">:</span> <span class="token string">"--..--"</span><span class="token punctuation">,</span>
+    <span class="token string">":"</span><span class="token punctuation">:</span> <span class="token string">"---..."</span><span class="token punctuation">,</span>
+    <span class="token string">";"</span><span class="token punctuation">:</span> <span class="token string">"-.-.-."</span><span class="token punctuation">,</span>
+    <span class="token string">"?"</span><span class="token punctuation">:</span> <span class="token string">"..--.."</span><span class="token punctuation">,</span>
+    <span class="token string">"-"</span><span class="token punctuation">:</span> <span class="token string">"-....-"</span><span class="token punctuation">,</span>
+    <span class="token string">"_"</span><span class="token punctuation">:</span> <span class="token string">"..--.-"</span><span class="token punctuation">,</span>
+    <span class="token string">"("</span><span class="token punctuation">:</span> <span class="token string">"-.--."</span><span class="token punctuation">,</span>
+    <span class="token string">")"</span><span class="token punctuation">:</span> <span class="token string">"-.--.-"</span><span class="token punctuation">,</span>
+    <span class="token string">"="</span><span class="token punctuation">:</span> <span class="token string">"-...-"</span><span class="token punctuation">,</span>
+    <span class="token string">"+"</span><span class="token punctuation">:</span> <span class="token string">".-.-."</span><span class="token punctuation">,</span>
+    <span class="token string">"/"</span><span class="token punctuation">:</span> <span class="token string">"-..-."</span><span class="token punctuation">,</span>
+    <span class="token string">"@"</span><span class="token punctuation">:</span> <span class="token string">".--.-."</span><span class="token punctuation">,</span>
+    <span class="token string">"$"</span><span class="token punctuation">:</span> <span class="token string">"...-..-"</span><span class="token punctuation">,</span>
+    <span class="token string">"&amp;"</span><span class="token punctuation">:</span> <span class="token string">"...."</span><span class="token punctuation">,</span>
+    <span class="token string">"'"</span><span class="token punctuation">:</span> <span class="token string">".----."</span><span class="token punctuation">,</span>
+    <span class="token string">"!"</span><span class="token punctuation">:</span> <span class="token string">"-.-.--"</span><span class="token punctuation">,</span>
+    <span class="token string">'"'</span><span class="token punctuation">:</span> <span class="token string">".-..-."</span><span class="token punctuation">,</span>
+<span class="token punctuation">&#125;</span>
+morse_to_alphabet <span class="token operator">=</span> <span class="token punctuation">&#123;</span>v<span class="token punctuation">:</span> k <span class="token keyword">for</span> k<span class="token punctuation">,</span> v <span class="token keyword">in</span> alphabet_to_morse<span class="token punctuation">.</span>items<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#125;</span>
+<span class="token keyword">def</span> <span class="token function">_morseremoveunusablecharacters</span><span class="token punctuation">(</span>uncorrected_string<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">return</span> <span class="token builtin">filter</span><span class="token punctuation">(</span><span class="token keyword">lambda</span> char<span class="token punctuation">:</span> char <span class="token keyword">in</span> alphabet_to_morse<span class="token punctuation">,</span> 
+    	uncorrected_string<span class="token punctuation">.</span>upper<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token triple-quoted-string string">'''filter() 函数用于过滤序列，过滤掉不符合条件的元素，
+返回由符合条件元素组成的新列表function -- 判断函数。iterable -- 可迭代对象
+匿名函数lambda：是指一类无需定义标识符（函数名）的函数或子程序。
+lambda 函数可以接收任意多个参数 (包括可选参数) 并且返回单个表达式的值。
+'''</span>
+<span class="token keyword">def</span> <span class="token function">morseencode</span><span class="token punctuation">(</span>decoded<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">"""
+    :param decoded:
+    :return:
+    """</span>
+    morsestring <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+    decoded <span class="token operator">=</span> _morseremoveunusablecharacters<span class="token punctuation">(</span>decoded<span class="token punctuation">)</span>
+    decoded <span class="token operator">=</span> decoded<span class="token punctuation">.</span>upper<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    words <span class="token operator">=</span> decoded<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">' '</span><span class="token punctuation">)</span>
+    <span class="token keyword">for</span> word <span class="token keyword">in</span> words<span class="token punctuation">:</span>
+        letters <span class="token operator">=</span> <span class="token builtin">list</span><span class="token punctuation">(</span>word<span class="token punctuation">)</span>
+        morseword <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+        <span class="token keyword">for</span> letter <span class="token keyword">in</span> letters<span class="token punctuation">:</span>
+            morseletter <span class="token operator">=</span> alphabet_to_morse<span class="token punctuation">[</span>letter<span class="token punctuation">]</span>
+            morseword<span class="token punctuation">.</span>append<span class="token punctuation">(</span>morseletter<span class="token punctuation">)</span>
+        word <span class="token operator">=</span> <span class="token string">"/"</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span>morseword<span class="token punctuation">)</span>
+        morsestring<span class="token punctuation">.</span>append<span class="token punctuation">(</span>word<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> <span class="token string">" "</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span>morsestring<span class="token punctuation">)</span>
+<span class="token keyword">def</span> <span class="token function">morsedecode</span><span class="token punctuation">(</span>encoded<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">"""
+    :param encoded:
+    :return:
+    """</span>
+    characterstring <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+    words <span class="token operator">=</span> encoded<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">" "</span><span class="token punctuation">)</span>
+    <span class="token keyword">for</span> word <span class="token keyword">in</span> words<span class="token punctuation">:</span>
+        letters <span class="token operator">=</span> word<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">"/"</span><span class="token punctuation">)</span>
+        characterword <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+        <span class="token keyword">for</span> letter <span class="token keyword">in</span> letters<span class="token punctuation">:</span>
+            characterletter <span class="token operator">=</span> morse_to_alphabet<span class="token punctuation">[</span>letter<span class="token punctuation">]</span>
+            characterword<span class="token punctuation">.</span>append<span class="token punctuation">(</span>characterletter<span class="token punctuation">)</span>
+        word <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span>characterword<span class="token punctuation">)</span>
+        characterstring<span class="token punctuation">.</span>append<span class="token punctuation">(</span>word<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> <span class="token string">" "</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span>characterstring<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<span class="token keyword">def</span> <span class="token function">getFraction</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    fraction <span class="token operator">=</span> continuedFraction<span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">)</span>
-    length <span class="token operator">=</span> <span class="token builtin">len</span><span class="token punctuation">(</span>fraction<span class="token punctuation">)</span>
-    ret <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-    <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> length<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        ret<span class="token punctuation">.</span>append<span class="token punctuation">(</span>cal<span class="token punctuation">(</span>fraction<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">:</span> i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-    <span class="token keyword">return</span> ret
+<h2 id="jsfuck"><a href="#jsfuck" class="headerlink" title="jsfuck"></a>jsfuck</h2><p>jsfuck仅使用6个字符“()+[]!”就可以书写任意的Javascript代码，可以在下面两个网站解码：</p>
+<p><a target="_blank" rel="noopener" href="http://www.jsfuck.com/">http://www.jsfuck.com/</a></p>
+<p><a target="_blank" rel="noopener" href="https://utf-8.jp/public/jsfuck.html">https://utf-8.jp/public/jsfuck.html</a></p>
+<p><a target="_blank" rel="noopener" href="http://codertab.com/JsUnFuck">http://codertab.com/JsUnFuck</a></p>
+<h2 id="uuencode"><a href="#uuencode" class="headerlink" title="uuencode"></a>uuencode</h2><p>uuencode是一种将二进制文本转化为可见字符文本的一种编码，编码之后出现的是ASC码32-95的字符，也就是没有小写字母，还是比较容易识别的。也有在线解码网站：<a target="_blank" rel="noopener" href="https://www.qqxiuzi.cn/bianma/uuencode.php">https://www.qqxiuzi.cn/bianma/uuencode.php</a></p>
+<h2 id="base"><a href="#base" class="headerlink" title="base"></a>base</h2><p>Crypto一定要提到大名鼎鼎的base家族，如base64、base32、base16等，还有一些可能不太熟悉的，如base36、base58、base62、base85、base91、base92。其中base16就是hex，也就是用16个字符去表示256个字符（4bit的内容去表示16bit的内容），如果用更多的字符就也就是后面的base32、base64。<br>那么如何识别base家族呢，首先看结尾有没有补位的“=”如果有就一定是，没有再看对应的字母是不是在base家族对应的字符集上。下面列举base家族对应的字符集</p>
+<table>
+<thead>
+<tr>
+<th>base</th>
+<th>字符集</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>base16</td>
+<td>0-9,A-F共16个以及补位的“=”</td>
+</tr>
+<tr>
+<td>base32</td>
+<td>A-Z,2-7共32个以及补位的“=”</td>
+</tr>
+<tr>
+<td>base64</td>
+<td>a-z,0-9,A-F,+,/共64个以及补位的“=”</td>
+</tr>
+</tbody></table>
+<p>下面举个base64例子说明它是如何将3个字符用4个字符进行表示的</p>
+<table>
+<thead>
+<tr>
+<th>A                              S                         T</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>65                            83                       84</td>
+</tr>
+<tr>
+<td>01000001            01010011            01010100</td>
+</tr>
+<tr>
+<td>010000           010101           001101         010100</td>
+</tr>
+<tr>
+<td>16                      21                    13                 20</td>
+</tr>
+</tbody></table>
+<p>如上所示，先将找字符对应的asc码，再转化为二进制，然后6bit一组切分，将6bit组成的数字转化为十进制，最后查表得到字符。其它如base32也是进行类似操作。</p>
+<p>至于没有列举的（不太常见的）可以自行查阅字符集，有些题目可能就是会用多种base进行多次编码，相应的也需要多次解码，所以判断在哪一次用了那种编码就十分重要，下面是一个非常好用的在线解码网站(对ctf来说都很好用)，能进行base家族的多种编码解码<a target="_blank" rel="noopener" href="http://ctf.ssleye.com/%E3%80%82">http://ctf.ssleye.com/。</a></p>
+<p>最后Python demon如下</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> base64
+s <span class="token operator">=</span> <span class="token string">'flag'</span>
+s_by <span class="token operator">=</span> <span class="token builtin">bytes</span><span class="token punctuation">(</span>s<span class="token punctuation">,</span> <span class="token string">'UTF-8'</span><span class="token punctuation">)</span>  <span class="token comment"># 转换成编码</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>s_by<span class="token punctuation">,</span> <span class="token builtin">type</span><span class="token punctuation">(</span>s_by<span class="token punctuation">)</span><span class="token punctuation">)</span>
+s_base64_by <span class="token operator">=</span> base64<span class="token punctuation">.</span>b64encode<span class="token punctuation">(</span>s_by<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>s_base64_by<span class="token punctuation">,</span> <span class="token builtin">type</span><span class="token punctuation">(</span>s_base64_by<span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment"># 类型还是编码</span>
+s_base64 <span class="token operator">=</span> s_base64_by<span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>s_base64<span class="token punctuation">,</span> <span class="token builtin">type</span><span class="token punctuation">(</span>s_base64<span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment"># decode变为字符串</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>base64<span class="token punctuation">.</span>b16encode<span class="token punctuation">(</span><span class="token builtin">bytes</span><span class="token punctuation">(</span><span class="token string">'flag'</span><span class="token punctuation">,</span> <span class="token string">'UTF-8'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>base64<span class="token punctuation">.</span>b32encode<span class="token punctuation">(</span><span class="token builtin">bytes</span><span class="token punctuation">(</span><span class="token string">'flag'</span><span class="token punctuation">,</span> <span class="token string">'UTF-8'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>base64<span class="token punctuation">.</span>b64encode<span class="token punctuation">(</span><span class="token builtin">bytes</span><span class="token punctuation">(</span><span class="token string">'flag'</span><span class="token punctuation">,</span> <span class="token string">'UTF-8'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>base64<span class="token punctuation">.</span>b16decode<span class="token punctuation">(</span><span class="token string">"666C6167"</span><span class="token punctuation">.</span>upper<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>base64<span class="token punctuation">.</span>b32decode<span class="token punctuation">(</span><span class="token string">"MZWGCZY="</span><span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment"># 结果为编码</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>base64<span class="token punctuation">.</span>b64decode<span class="token punctuation">(</span><span class="token string">"ZmxhZw=="</span><span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment"># 结果为编码</span>
+<span class="token triple-quoted-string string">'''
+b'flag' &lt;class 'bytes'>
+b'ZmxhZw==' &lt;class 'bytes'>
+ZmxhZw== &lt;class 'str'>
+666C6167
+MZWGCZY=
+ZmxhZw==
+b'flag'
+b'flag'
+b'flag'
+'''</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<span class="token keyword">def</span> <span class="token function">solve</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> c<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    delta <span class="token operator">=</span> iroot<span class="token punctuation">(</span>b <span class="token operator">*</span> b <span class="token operator">-</span> <span class="token number">4</span> <span class="token operator">*</span> a <span class="token operator">*</span> c<span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
-    <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token operator">-</span>b <span class="token operator">+</span> delta<span class="token punctuation">)</span> <span class="token operator">//</span> <span class="token punctuation">(</span><span class="token number">2</span> <span class="token operator">*</span> a<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token operator">-</span>b <span class="token operator">-</span> delta<span class="token punctuation">)</span> <span class="token operator">//</span> <span class="token punctuation">(</span><span class="token number">2</span> <span class="token operator">*</span> a<span class="token punctuation">)</span>
-
-<span class="token keyword">def</span> <span class="token function">wienerAttack</span><span class="token punctuation">(</span>e<span class="token punctuation">,</span> n<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    ret <span class="token operator">=</span> getFraction<span class="token punctuation">(</span>e<span class="token punctuation">,</span> n<span class="token punctuation">)</span>
-    <span class="token keyword">for</span> <span class="token punctuation">(</span>d<span class="token punctuation">,</span> k<span class="token punctuation">)</span> <span class="token keyword">in</span> ret<span class="token punctuation">:</span>
-        <span class="token keyword">if</span> k <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span> <span class="token keyword">continue</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>e <span class="token operator">*</span> d <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">%</span> k <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">:</span> <span class="token keyword">continue</span>
-        phi <span class="token operator">=</span> <span class="token punctuation">(</span>e <span class="token operator">*</span> d <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">//</span> k
-        p<span class="token punctuation">,</span> q <span class="token operator">=</span> solve<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token punctuation">(</span>n <span class="token operator">-</span> phi <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span> n<span class="token punctuation">)</span>
-        <span class="token keyword">if</span> p <span class="token operator">*</span> q <span class="token operator">==</span> n<span class="token punctuation">:</span>
-            <span class="token keyword">print</span><span class="token punctuation">(</span>d<span class="token punctuation">)</span>
-            <span class="token keyword">return</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+<h2 id="Quoted-printable"><a href="#Quoted-printable" class="headerlink" title="Quoted-printable"></a>Quoted-printable</h2><p><a target="_blank" rel="noopener" href="http://web.chacuo.net/charsetquotedprintable/">http://web.chacuo.net/charsetquotedprintable/</a></p>
+<p><a target="_blank" rel="noopener" href="http://www.mxcz.net/tools/quotedprintable.aspx">http://www.mxcz.net/tools/quotedprintable.aspx</a></p>
+<h2 id="Rabbit"><a href="#Rabbit" class="headerlink" title="Rabbit"></a>Rabbit</h2><p><a target="_blank" rel="noopener" href="http://tool.chinaz.com/Tools/TextEncrypt.aspx">http://tool.chinaz.com/Tools/TextEncrypt.aspx</a></p>
+<h2 id="中文电码"><a href="#中文电码" class="headerlink" title="中文电码"></a>中文电码</h2><p><a target="_blank" rel="noopener" href="http://code.mcdvisa.com/">http://code.mcdvisa.com/</a></p>
+<h2 id="曼彻斯特编码"><a href="#曼彻斯特编码" class="headerlink" title="曼彻斯特编码"></a>曼彻斯特编码</h2><p>网上有现成工具。</p>
+<h2 id="社会主义核心价值观编码"><a href="#社会主义核心价值观编码" class="headerlink" title="社会主义核心价值观编码"></a>社会主义核心价值观编码</h2><p><a target="_blank" rel="noopener" href="https://atool.vip/corevalue/">https://atool.vip/corevalue/</a></p>
+<h2 id="新约佛论禅"><a href="#新约佛论禅" class="headerlink" title="新约佛论禅"></a>新约佛论禅</h2><p><a target="_blank" rel="noopener" href="http://hi.pcmoe.net/buddha.html">http://hi.pcmoe.net/buddha.html</a></p>
 
                 
             </div>
@@ -621,7 +775,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://ysy-phoenix.github.io/2021/081919318.html">https://ysy-phoenix.github.io/2021/081919318.html</a>
+                    <a href="https://ysy-phoenix.github.io/2021/090254115.html">https://ysy-phoenix.github.io/2021/090254115.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -661,6 +815,10 @@
                             
                                 <a href="/tags/crypto/">
                                     <span class="chip bg-color">crypto</span>
+                                </a>
+                            
+                                <a href="/tags/%E5%A4%87%E4%BB%BD/">
+                                    <span class="chip bg-color">备份</span>
                                 </a>
                             
                         </div>
@@ -834,13 +992,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/090254115.html">
+                <a href="/2021/090233205.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="编码">
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="古典密码">
                         
-                        <span class="card-title">编码</span>
+                        <span class="card-title">古典密码</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -887,12 +1045,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/080843073.html">
+                <a href="/2021/081919318.html">
                     <div class="card-image">
                         
-                        <img src="/images/a2.jpg" class="responsive-img" alt="数据结构week12">
                         
-                        <span class="card-title">数据结构week12</span>
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="Wiener Attack">
+                        
+                        <span class="card-title">Wiener Attack</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -903,14 +1062,14 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-08-08
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-08-19
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/" class="post-category">
-                                    程序设计
+                            <a href="/categories/CTF/" class="post-category">
+                                    CTF
                                 </a>
                             
                             
@@ -920,8 +1079,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
-                        <span class="chip bg-color">数据结构</span>
+                    <a href="/tags/crypto/">
+                        <span class="chip bg-color">crypto</span>
                     </a>
                     
                 </div>

@@ -4,7 +4,7 @@
 
 <head>
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-    <meta name="keywords" content="introduction, Phoenix">
+    <meta name="keywords" content="Hash函数, Phoenix">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>introduction | Phoenix</title>
+    <title>Hash函数 | Phoenix</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -320,12 +320,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/14.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/images/a5.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">introduction</h1>
+                    <h1 class="description center-align post-title">Hash函数</h1>
                 </div>
             </div>
         </div>
@@ -441,8 +441,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E7%BB%BC%E8%BF%B0/">
-                                <span class="chip bg-color">综述</span>
+                            <a href="/tags/crypto/">
+                                <span class="chip bg-color">crypto</span>
+                            </a>
+                        
+                            <a href="/tags/%E5%A4%87%E4%BB%BD/">
+                                <span class="chip bg-color">备份</span>
                             </a>
                         
                     </div>
@@ -453,8 +457,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E6%80%BB%E8%A7%88/" class="post-category">
-                                总览
+                            <a href="/categories/CTF/" class="post-category">
+                                CTF
                             </a>
                         
                     </div>
@@ -466,14 +470,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-04-03
+                    2021-09-02
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-04-04
+                    2021-09-02
                 </div>
                 
 
@@ -483,7 +487,7 @@
     <i class="fa fa-pencil"></i> 作者: Phoenix
     
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    97
+                    364
                 </div>
                 
 
@@ -513,8 +517,25 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="微速前进"><a href="#微速前进" class="headerlink" title="微速前进"></a>微速前进</h1><h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>搭建这个博客可以说是一时兴起，也不知道能坚持多久，但是我会把这里当成一个家，记录下奋斗过的足迹。</p>
-<h2 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h2><p>更新内容包括但不限于CTF知识、工具（脚本）、题解，本科课程相关题解、杂文、随笔等（比如大物实验报告？大作业开源？）。</p>
+                <h1 id="Hash函数"><a href="#Hash函数" class="headerlink" title="Hash函数"></a>Hash函数</h1><h2 id="MD5"><a href="#MD5" class="headerlink" title="MD5"></a>MD5</h2><h3 id="基本描述"><a href="#基本描述" class="headerlink" title="基本描述"></a>基本描述</h3><p>MD5 的输入输出如下</p>
+<ul>
+<li>输入：任意长的消息，512 比特长的分组。</li>
+<li>输出：128 比特的消息摘要。</li>
+</ul>
+<p>MD5算法的原理可简要的叙述为：MD5码以512位分组来处理输入的信息，且每一分组又被划分为16个32位子分组，经过了一系列的处理后，算法的输出由四个32位分组组成，将这四个32位分组级联后将生成一个128位散列值。</p>
+<p>总体流程如下图所示，每次的运算都由前一轮的128位结果值和当前的512bit值进行运算 。</p>
+<p>其底层实现较为复杂（sigh）</p>
+<p>此外，有时候我们获得到的 md5 是 16 位的，其实那 16 位是 32 位 md5 的长度，是从 32 位 md5 值来的。是将 32 位 md5 去掉前八位，去掉后八位得到的。</p>
+<p>一般来说，我们可以通过函数的初始化来判断是不是 MD5 函数。一般来说，如果一个函数有如下四个初始化的变量，可以猜测该函数为 MD5 函数，因为这是 MD5 函数的初始化 IV。</p>
+<pre class="line-numbers language-none"><code class="language-none">0x67452301，0xEFCDAB89，0x98BADCFE，0x10325476<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="破解"><a href="#破解" class="headerlink" title="破解"></a>破解</h3><p>目前可以说 md5 已经基本被攻破了，一般的 MD5 的碰撞都可以在如下网上获取到</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="http://www.cmd5.com/">http://www.cmd5.com/</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.ttmd5.com/">http://www.ttmd5.com/</a></li>
+<li><a target="_blank" rel="noopener" href="http://pmd5.com/">http://pmd5.com/</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.win.tue.nl/hashclash/fastcoll_v1.0.0.5.exe.zip">https://www.win.tue.nl/hashclash/fastcoll_v1.0.0.5.exe.zip</a> (生成指定前缀的 md5 碰撞)</li>
+</ul>
 
                 
             </div>
@@ -541,7 +562,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://ysy-phoenix.github.io/2021/04036818.html">https://ysy-phoenix.github.io/2021/04036818.html</a>
+                    <a href="https://ysy-phoenix.github.io/2021/09023969.html">https://ysy-phoenix.github.io/2021/09023969.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -579,8 +600,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E7%BB%BC%E8%BF%B0/">
-                                    <span class="chip bg-color">综述</span>
+                                <a href="/tags/crypto/">
+                                    <span class="chip bg-color">crypto</span>
+                                </a>
+                            
+                                <a href="/tags/%E5%A4%87%E4%BB%BD/">
+                                    <span class="chip bg-color">备份</span>
                                 </a>
                             
                         </div>
@@ -754,12 +779,12 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/040438539.html">
+                <a href="/2021/090244648.html">
                     <div class="card-image">
                         
-                        <img src="/images/b.jpg" class="responsive-img" alt="c_week4">
+                        <img src="/images/a2.jpg" class="responsive-img" alt="分组密码">
                         
-                        <span class="card-title">c_week4</span>
+                        <span class="card-title">分组密码</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -770,14 +795,14 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-04-04
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-09-02
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/" class="post-category">
-                                    程序设计
+                            <a href="/categories/CTF/" class="post-category">
+                                    CTF
                                 </a>
                             
                             
@@ -787,8 +812,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/c-c/">
-                        <span class="chip bg-color">c/c++</span>
+                    <a href="/tags/crypto/">
+                        <span class="chip bg-color">crypto</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%A4%87%E4%BB%BD/">
+                        <span class="chip bg-color">备份</span>
                     </a>
                     
                 </div>
@@ -799,16 +828,16 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/04036818.html">
+                <a href="/2021/090233205.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="introduction">
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="古典密码">
                         
-                        <span class="card-title">introduction</span>
+                        <span class="card-title">古典密码</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -819,26 +848,29 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-03
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-09-02
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%80%BB%E8%A7%88/" class="post-category">
-                                    总览
+                            <a href="/categories/CTF/" class="post-category">
+                                    CTF
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%BB%BC%E8%BF%B0/">
-                        <span class="chip bg-color">综述</span>
+                    <a href="/tags/crypto/">
+                        <span class="chip bg-color">crypto</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%A4%87%E4%BB%BD/">
+                        <span class="chip bg-color">备份</span>
                     </a>
                     
                 </div>
