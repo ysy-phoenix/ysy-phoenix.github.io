@@ -473,7 +473,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-09-11
+                    2021-09-12
                 </div>
                 
 
@@ -483,14 +483,14 @@
     <i class="fa fa-pencil"></i> 作者: Phoenix
     
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.7k
+                    4.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    11 分
+                    19 分
                 </div>
                 
 
@@ -519,10 +519,10 @@
 <p>（2）反例易举，从略。</p>
 <h2 id="T3"><a href="#T3" class="headerlink" title="T3"></a>T3</h2><p>共12个，从变数考虑：0、1、5、6条边各1个，2、4条边各2个，3条边4个。图略。</p>
 <h2 id="T4"><a href="#T4" class="headerlink" title="T4"></a>T4</h2><p>构作图$G=(V,E)$，其中$V$为人员集合，每个人作为一个顶点，两顶点间有边当且仅当两人是朋友，这样，对每个人$v$来说，朋友数就是其在图中的度数$deg(v)$​。假设任意两个人的朋友数不同，即任意两个顶点的度数不同，则度数序列只能为$n-1,n-2,\cdots,1,0$。其中$n-1$表明图中没有孤立点，但是$0$表示图中有一个孤立点，矛盾！故假设不成立，得证。</p>
-<h2 id="T5"><a href="#T5" class="headerlink" title="T5"></a>T5</h2><p>构作图$G=(V,E)$，其中$V$为人员集合，每个人作为一个顶点，两顶点间有边当且仅当两人是认识，则原题等价于，若$\nu(G)=2n,\forall v \in V(G),deg(v)\geq n$​，则图中存在长度至少为4的圈。</p>
-<p>若$n=2$，容易验证图的可能情形只有三种，且都存在长度为4的圈。</p>
-<p>若$n\geq3$，则$\delta(G)\geq 3$​，进而图中必定存在偶圈，而偶圈长度至少为4（例1.10）。</p>
-<h2 id="T6"><a href="#T6" class="headerlink" title="T6"></a>T6</h2><p>考虑进行标号，以下顺序自上而下，自左而右。对于左图，A，DCB，EF，GH，IJ。对于右图，A，DCB，JHE，IGF。图略。</p>
+<h2 id="T5"><a href="#T5" class="headerlink" title="T5"></a>T5</h2><p>构作图$G=(V,E)$，其中$V$为人员集合，每个人作为一个顶点，两顶点间有边当且仅当两人是认识，则原题等价于，若$\nu(G)=2n,\forall v \in V(G),deg(v)\geq n$​，则图中存在长度至少为$4$的圈。</p>
+<p>若$n=2$，容易验证图的可能情形只有三种，且都存在长度为$4$的圈。</p>
+<p>若$n\geq3$，则$\delta(G)\geq 3$​，进而图中必定存在偶圈，而偶圈长度至少为$4$（例$1.10$）。</p>
+<h2 id="T6"><a href="#T6" class="headerlink" title="T6"></a>T6</h2><p>考虑进行标号，以下顺序自上而下，自左而右。对于左图，$A，DCB，EF，GH，IJ$。对于右图，$A，DCB，JHE，IGF$。图略。</p>
 <h2 id="T7"><a href="#T7" class="headerlink" title="T7"></a>T7</h2><p>（1）由二分图定义及乘法原理，不妨设二分图划分为$V(G)=X\cup Y ,|X|=m,|Y|=n$，则所有的边必定一端在$X$中，另一端在$Y$中，而$\forall x \in X,deg(x)=n$，从而$\epsilon(G)=mn$。</p>
 <p>（2）结合上一小题结论有，$\epsilon(G)=mn$，而$\nu(G)=m+n$，利用基本不等式立得$\epsilon(G)\leq\frac{\nu^2(G)}{4}$。$(mn\leq \frac{(m+n)^2}{4})$</p>
 <h2 id="T8"><a href="#T8" class="headerlink" title="T8"></a>T8</h2><p>记$V^{‘}$中顶点度数为奇数的顶点集合为$V_o$，顶点度数为偶数的顶点集合为$V_e$。现考虑$V^{‘}$中顶点度数之和，有<br>$$<br>\sum_{v\in V^{‘}}deg(v) = \sum_{v\in V_o}deg(v) + \sum_{v\in V_e}deg(v)<br>$$<br>易知$\sum_{v\in V_e}deg(v)$为偶数。</p>
@@ -532,19 +532,19 @@
 <h2 id="T10"><a href="#T10" class="headerlink" title="T10"></a>T10</h2><p>（1）由同构，$\epsilon(G)=\epsilon(G^c)$；由补图定义，$\epsilon(G)+\epsilon(G^c)=\epsilon(K_{|\nu(g|})\equiv\frac{\nu(G)(\nu(G)-1)}{2}$，从而$\epsilon(G)=\epsilon(G^c)=\frac{\nu(G)(\nu(G)-1)}{4}$</p>
 <p>进而有$\nu(G)\equiv 0或1\ mod\ 4$。（$\nu(G)$和$\nu(G)-1$不可能同时$\equiv 0\ mod\ 2$）</p>
 <p>（2）1个，五角星</p>
-<h2 id="T11"><a href="#T11" class="headerlink" title="T11"></a>T11</h2><p>构造完全二分图$K_{2,2}$​​，不妨$X={a,b},Y={c,d}$​​。若与$k$​维超立方体子图同构，不妨$a$​与$b$​第$i$​位不同，$a$​与$c$​第$j$​​位不同，$b$​与$d$​第$k$​位不同（都只有一位不同），这里$i、j、k$​互不相同，则$c$​与$d$第$j、k$位不同，不可能相连，矛盾！故不可能同构。</p>
+<h2 id="T11"><a href="#T11" class="headerlink" title="T11"></a>T11</h2><p>构造完全二分图$K_{2,2}$​​​，不妨$X=\{a,b\},Y=\{c,d\}$​​​。若与$k$​​维超立方体子图同构，不妨$a$​​与$b$​​第$i$​​位不同，$a$​​与$c$​​第$j$​​​位不同，$b$​​与$d$​​第$k$​​位不同（都只有一位不同），这里$i、j、k$​​互不相同，则$c$​​与$d$​第$j、k$​位不同，不可能相连，矛盾！故不可能同构。</p>
 <h2 id="T12"><a href="#T12" class="headerlink" title="T12"></a>T12</h2><p>由题，考虑$n=2$​，若导出子图相同的边数为$0$，易知$G$为零图，从而$G\cong K^c_{\nu(G)}$；若导出子图相同边数为$1$，则$G$为完全图，从而$G\cong K_{\nu(G)}$。</p>
 <h2 id="T13"><a href="#T13" class="headerlink" title="T13"></a>T13</h2><p>由<br>$$<br>\delta(G)\times\nu(G)\leq\sum_{v\in\nu(G)}deg(v)=2\epsilon(G)\leq\Delta(G)\times\nu(G)<br>$$<br>立得<br>$$<br>\delta(G)\leq\frac{2\epsilon(G)}{\nu(G)}\leq\Delta(G)<br>$$</p>
 <h2 id="T14"><a href="#T14" class="headerlink" title="T14"></a>T14</h2><p>（1）$7&gt;6=7-1$；两个$6$与$1$矛盾。</p>
 <p>（2）设$V^{‘}$为度数前$k$大的顶点构成的集合，考虑$V^{‘}$中顶点度数和的最大值。考察边的贡献，</p>
 <p>若边两端点都在$V^{‘}$​​中，最多贡献度数$k(k-1)$$;$</p>
-<p>若边一端点在$V^{‘}$中，另一端点在$V(G)-V^{‘}$中，考虑$V(G)-V^{‘}$中的任一顶点$d_i(k+1\leq i\leq n)$，由其引出的边对$V^{‘}$中顶点度数和的贡献最多为$min{k,d_i}$，总和为$\sum_{i=k+1}^{n}min{k,d_i}$。</p>
-<p>综上有$\sum_{i=1}^{k}d_i\leq k(k-1)+\sum_{i=k+1}^{n}min{k,d_i}。$​</p>
-<h2 id="T15"><a href="#T15" class="headerlink" title="T15"></a>T15</h2><p>不妨设$H=X\cup Y$​是$G$​的具有最多边数的二分生成子图。这样的$H$​可看成$G$​​删除若干条边所得。下证$\forall x\in X,d_{X}(x)\leq d_H(x)$​​。其中$d_{X}(x)$​表式在原来图$G$​的$X$​中与$x$关联的边数。</p>
-<p>假设$\exists x_0 \in X,st d_{X}(x_0)&gt;d_H(x_0)$，考虑新划分$X_1=X \setminus {x_0},Y_1=Y\cup {x_0}，H_1=X_1\cup Y_1$ ,这样对图$H_1$来说，$G$中$x$与$X_1$之间的边会保留，与$Y$之间的边会删除，则$\epsilon(H_1)=\epsilon(H)+d_{X}(x_0)-d_H(x_0)&gt;\epsilon(H)$，与$H$是具有最多边数的二分生成子图矛盾！故假设不成立。同理$\forall y\in Y,d_{Y}(y)\leq d_H(y)$。</p>
+<p>若边一端点在$V^{‘}$​​中，另一端点在$V(G)-V^{‘}$​​中，考虑$V(G)-V^{‘}$​​中的任一顶点$d_i(k+1\leq i\leq n)$​​，由其引出的边对$V^{‘}$​​中顶点度数和的贡献最多为$min\{k,d_i\}$​​，总和为$\sum_{i=k+1}^{n}min\{k,d_i\}$​​。</p>
+<p>综上有$\sum_{i=1}^{k}d_i\leq k(k-1)+\sum_{i=k+1}^{n}min\{k,d_i\}。$​​</p>
+<h2 id="T15"><a href="#T15" class="headerlink" title="T15"></a>T15</h2><p>不妨设$V(H)=X\cup Y$​​是$G$​​的具有最多边数的二分生成子图。这样的$H$​​可看成$G$​​​删除若干条边所得。下证$\forall x\in X,d_{X}(x)\leq d_H(x)$​​​。其中$d_{X}(x)$​​表式在原来图$G$​​的$X$​​中与$x$​关联的边数。</p>
+<p>假设$\exists x_0 \in X,s.t. d_{X}(x_0)&gt;d_H(x_0)$​​​，考虑新划分$X_1=X \setminus \{x_0\},Y_1=Y\cup \{x_0\}，H_1=X_1\cup Y_1$​​​ ,这样对图$H_1$​​​来说，$G$​​​中$x$​​​与$X_1$​​​之间的边会保留，与$Y$​​​之间的边会删除，则$\epsilon(H_1)=\epsilon(H)+d_{X}(x_0)-d_H(x_0)&gt;\epsilon(H)$​​​，与$H$​​​是具有最多边数的二分生成子图矛盾！故假设不成立。同理$\forall y\in Y,d_{Y}(y)\leq d_H(y)$​​​。</p>
 <p>故对$x\in X$，有$d_G(x)=d_X(x)+d_H(x)\leq2d_H(x);$对$y\in Y$，有$d_G(y)=d_Y(y)+d_H(y)\leq2d_H(y)$。从而对$\forall u\in V(G)=V(H),d_H(u)\geq d_G(u)/2$​。</p>
 <h2 id="T16"><a href="#T16" class="headerlink" title="T16"></a>T16</h2><p>原题等价于证明最长轨道长度大于等于$k$。考虑最长轨道$P(u,v)=v_0v_1\cdots v_l$，假设$l&lt;k$，由于$deg(v_0)\geq\delta(G)\geq k$，则$v_0$除与$v_1$外还和至少$k-1$个点相邻，若这$k-1$个点有一个不在$P(u,v)$上，与最长轨道矛盾；若全在$P(u,v)$上，与$l&lt;k$矛盾！综上，假设不成立，$l\geq k$。</p>
-<h2 id="T17"><a href="#T17" class="headerlink" title="T17"></a>T17</h2><p>必要性：由$G$连通，考虑$V(G)$的任意划分$V^{‘}$与$V(G)-V^{‘}$，考虑$\forall u\in V^{‘},v\in V(G)-V^{‘}$，则$u、v$之间存在一条轨道，进而在轨道上必定存在相继的两点$v_1、v_2,st\ v_1\in V^{‘},v_2\in V(G)-V^{‘}$，则边$v_1v_2$​满足条件。</p>
+<h2 id="T17"><a href="#T17" class="headerlink" title="T17"></a>T17</h2><p>必要性：由$G$连通，考虑$V(G)$的任意划分$V^{‘}$与$V(G)-V^{‘}$，考虑$\forall u\in V^{‘},v\in V(G)-V^{‘}$，则$u、v$之间存在一条轨道，进而在轨道上必定存在相继的两点$v_1、v_2,s.t.\ v_1\in V^{‘},v_2\in V(G)-V^{‘}$，则边$v_1v_2$​满足条件。</p>
 <p>充分性，对于$\forall u、v\in V(G)$，可用如下方法找到连接它们的轨道。初始令$V={u}$。</p>
 <p>令$V^{‘}$为$V(G)-V$中所有与$V$中点相邻的点的集合，由条件知$V^{‘}$非空，令$V=V\cup V^{‘}$，注意到这样的$V$始终是一个连通片，若$v\in V$，则$u、v$连通，终止；否则，重复执行本步，每执行一次$V$都会扩大，从而可知会在有限步终止，证毕。</p>
 <h2 id="T18"><a href="#T18" class="headerlink" title="T18"></a>T18</h2><p>假设$G$​不是连通图，则$G$​可以分为$w(w\geq2)$​个连通片。设第$i$​个连通片顶点数为$p_i(\geq1)$​，有$\sum_{i=1}^wp_i=\nu(G)$​；边数为$\epsilon_i$​，易知$\epsilon_i\leq p_i(p_i-1)/2$​，从而<br>$$<br>\begin{aligned}<br>\epsilon(G) &amp;=\sum_{i=1}^w\epsilon_i\leq\sum_{i=1}^wp_i(p_i-1)/2 \newline<br>&amp;=\sum_{i=1}^wp_i^2/2+\nu(G)/2=((\sum_{i=1}^wp_i)^2-2\sum_{1\leq i&lt;j\leq w}p_ip_j)/2-\nu(G)/2\newline&amp;=\nu(G)(\nu(G)-1)/2-\sum_{1\leq i&lt;j\leq w}p_ip_j<br>\end{aligned}<br>$$<br>注意到<br>$$<br>\sum_{1\leq i&lt;j\leq w}p_ip_j\geq p_1p_2+p_2p_3+\cdots p_wp_1\geq \nu(G)-1<br>$$<br>从而<br>$$<br>\epsilon(G)\leq (\nu(G)-1)(\nu(G)-2)/2=\tbinom{\nu(G)-1}{2}<br>$$<br>与题设矛盾！故假设不成立，从而$G$​是连通图。</p>
@@ -552,13 +552,153 @@
 <p>综上，$w(G)\leq w(G-e)\leq w(G)+1$。</p>
 <p>（2）顶点度数序列为3,1,1,1的图，去掉度数为3的顶点就不成立。</p>
 <h2 id="T20"><a href="#T20" class="headerlink" title="T20"></a>T20</h2><p>考虑$G-v$中任意一个连通片，则在$G$中该连通片与$v$之间有偶数条边连接，否则与推论$1.1$矛盾（度为奇数的顶点将有奇数个）。进而$G$与该连通片至少有两条边相连，从而$w(G-v)\geq deg(v)/2$。</p>
-<h2 id="T21"><a href="#T21" class="headerlink" title="T21"></a>T21</h2><p>假设存在两条无公共顶点的最长轨道$P_1、P_2$​，设长度为$n$​，易知$n\geq3$​，分别考虑两条轨道上除两端点外的两点$u,v$​，由连通可知它们之间存在轨道，设长度为$l(l\geq1)$​。设$u$​将$P_1$​分为长度为$a$​和$n-a$​两部分，$v$将$P_2$分为长度为$b$和$n-b$​的两部分​，显然有<br>$$<br>max{a,n-a}+max{n,n-b}+l\geq n+l\geq n+1<br>$$<br>这与$P_1、P_2$​是最长轨道矛盾！故假设不成立，存在公共顶点。</p>
+<h2 id="T21"><a href="#T21" class="headerlink" title="T21"></a>T21</h2><p>假设存在两条无公共顶点的最长轨道$P_1、P_2$​，设长度为$n$​，易知$n\geq3$​，分别考虑两条轨道上除两端点外的两点$u,v$​，由连通可知它们之间存在轨道，设长度为$l(l\geq1)$​。设$u$​将$P_1$​分为长度为$a$​和$n-a$​两部分，$v$将$P_2$分为长度为$b$和$n-b$​的两部分​，显然有<br>$$<br>max\{a,n-a\}+max\{n,n-b\}+l\geq n+l\geq n+1<br>$$<br>这与$P_1、P_2$​是最长轨道矛盾！故假设不成立，存在公共顶点。</p>
 <h2 id="T22"><a href="#T22" class="headerlink" title="T22"></a>T22</h2><p>由题可知$\nu(G)\geq3$，且$\Delta(G)\geq2$。</p>
 <p>假若不然，$\forall u、v、w,$若$uv,vw\in E(G),$则$\ uw\in E(G)(*)$​</p>
 <p>现任取$v_i、v_j$，由连通，知$u、v$之间存在轨道$P(v_i,v_j)=v_iv_{i_1}\cdots v_{i_k}v_j$。由$(*)$，$v_i$与$v_{i_1}$、$v_{i_1}$与$v_{i_2}$​相相邻，从而$v_i$与$v_{i_2}$相邻，不断迭代可知，$v_i$与$v_j$​​相邻，由$v_i、v_j$的任意性，知$G$是完全图，矛盾！故假设不成立。</p>
 <h2 id="T23"><a href="#T23" class="headerlink" title="T23"></a>T23</h2><p>若该行迹是一个圈，得证。否则找从起点出发后第一个在行迹上重复的顶点记为$w$​​​，利用行迹无重边的性质，一定存在从起点到该点的至少两条轨道，则构成一个圈，若$e$​​​在该圈上，得证，否则，删除图中该圈​除$w$​​外的所有顶点及关联的边，将$w$​作为起点（也是终点），依然满足题目性质，继续重复刚才的操作，且能在有限步终止，最终$e$​一定在某个圈上​​​。</p>
 <h2 id="T24"><a href="#T24" class="headerlink" title="T24"></a>T24</h2><p>题目描述感觉有误，应当是长至少为$\delta(G)+1$的圈。</p>
 <p>不妨设$G$​连通，否则只需要考虑其一个连通片即可。设$P(u,v)=v_0v_1\cdots v_k$为其最长轨道，则$v_0$只与$P(u,v)$上的点相邻，且至少有$\delta(G)$个顶点与之相邻，记为$u_1,\cdots,u_{\delta(G)}$（按照与$v_0$的距离递增的顺序），则$v_0v_1\cdots u_{\delta(G)}v_0$为圈，且长度至少为$\delta(G)+1$，得证。</p>
+<h2 id="T25"><a href="#T25" class="headerlink" title="T25"></a>T25</h2><p>（1）对顶点数$\nu(G)$进行归纳</p>
+<p>1.$\nu(G)=3$时，显然成立（三角形）。</p>
+<p>2.假设$\nu(G)&lt;k$​时成立，当$\nu(G)=k$​​时，若存在$v,s.t.\ deg(v)\leq1$​，则删去该点及与之关联的边，就降至$k-1$​阶情形，由归纳假设知成立。若$\forall v,deg(v)\geq2$​，$\delta(G)\geq2$​，由例$1.8$​知有圈。</p>
+<p>综合$1、2$知成立。</p>
+<p>另解（利用第二章树的知识）</p>
+<p>不妨假设$G$连通，否则必然能找到一个满足条件的连通片进行讨论。考虑删去一些边（至少会删一条）至$\epsilon(G)=\nu(G)-1$，由定理$2.1(4)$和$(6)$知，这样的图是树，再加一条边即恰好含一个圈，得证。</p>
+<p>（2）对顶点数$\nu(G)$进行归纳，首先注意到$\nu(G)(\nu(G)-1)/2\geq\epsilon(G)\geq\nu(G)+4$，得$\nu(G)\geq5$。</p>
+<p>1.$\nu(G)=5$​时，$\epsilon(G)\geq9$​，即相当于$K_5$至多删一条边，经验证，显然成立。</p>
+<p>2.假设$\nu(G)&lt;k$时成立，当$\nu(G)=k$时，$\epsilon(G)\geq\nu(G)+4&gt;\nu(G)$，由$(1)$知必有圈。</p>
+<p>若$G$中存在长度为3或4的圈$C$,则，删去圈$C$的所有边依然满足$\epsilon(G)\geq\nu(G)$，仍然有圈，且与$C$无公共边，成立。</p>
+<p>否则，所有圈长度大于等于5（无三角形或四边形）。</p>
+<p>若$\exists v,s.t.\ deg(v)\leq1$​，删除此点及与之关联的一条边即降为$k-1$阶情形，由归纳假设知存在两个无公共边的圈，再加回来也不破坏，成立。</p>
+<p>若$\exists v,s.t.\ deg(v)=2$，设与之相邻两点$v_1、v_2$，由于无三角形，则$v_1$与$v_2$不相邻，考虑删去$v$及$vv_1、vv_2$，加上$v_1v_2$，降至$k-1$阶情形，由归纳假设知存在两个无公共边的圈，若$v_1v_2$在圈中，将其替换回$vv_1、vv_2$依然满足；若不在圈中，加回来显然满足。</p>
+<p>若$\forall v,deg(v)\geq3$，以下考虑$\epsilon(G)=\nu(G)+4$情形，若$\epsilon(G)&gt;\nu(G)+4$，删边即可，最后加回去不改变性质。</p>
+<p>易知$\delta(G)\geq3$，从而$\sum deg(v)=2\epsilon(G)\geq3\nu(G)$，结合$\epsilon(G)=\nu(G)+4$，得$\nu(G)\leq8$。下证此情形必定存在三角形或四边形，从而不可能。</p>
+<p>易知$G$​中有圈，设$C$​为圈长最短的圈，则圈中点除了圈上的边之外不会有其他边，否则与圈长最短矛盾。设圈长为$r$。</p>
+<p>若$r=\nu(G)$，由于$\epsilon(G)=\nu(G)+4$，必定存在其他边，矛盾！</p>
+<p>若$r=\nu(G)-1$，由$\forall v,deg(v)\geq3$，则只能是圈上每一点都与圈外那一点相连，从而存在三角形，矛盾！</p>
+<p>若$r\leq\nu(G)-2$，而$r\geq5$。从而$\nu(G)=7$或$8$。</p>
+<p>若$\nu(G)=7$，则$\epsilon(G)=11$$，r$只能为$5$，圈上有$5$条边，圈外$2$点至多连$1$条边，故圈外必有一点至少与圈上点有三条边，必存在三角形，矛盾！</p>
+<p>若$\nu(G)=8$，则$\epsilon(G)=12$。</p>
+<p>若$r=5$​​，圈上有$5$条边，则圈外$3$点至多有$2$​条边，必有一点至少与圈上点有两条边，从而必定存在四边形，矛盾！</p>
+<p>若$r=6$，圈上有$6$条边，圈外$2$点至多连$1$条边，则圈外必有一点至少与圈上点有三条边，必存在四边形，矛盾！</p>
+<p>综上，证毕。</p>
+<h2 id="T26"><a href="#T26" class="headerlink" title="T26"></a>T26</h2><p>利用$Dijkstra$​​算法即可。以下有多条的只列举一条。</p>
+<p>$c_2:c_1\rightarrow c_6\rightarrow c_2,35$​</p>
+<p>$c_3:c_1\rightarrow c_5\rightarrow c_3,45$​</p>
+<p>$c_4:c_1\rightarrow c_6\rightarrow c_4,35$</p>
+<p>$c_5:c_1\rightarrow c_5,25$</p>
+<p>$c_2:c_1\rightarrow c_6,10$</p>
+<p>彩蛋：</p>
+<p>以下为使用$matlab$​​进行计算的代码，分别是利用$Dijkstra$​​求单源最短路、$Dijkstra$​​求距离矩阵和$Floyd$​​算法求距离矩阵。</p>
+<p>特别地，$T28$和$T29$建模之后都可以使用软件求解。</p>
+<pre class="line-numbers language-matlab" data-language="matlab"><code class="language-matlab">clc<span class="token punctuation">,</span> clear<span class="token punctuation">,</span> close all<span class="token punctuation">,</span> a<span class="token operator">=</span><span class="token function">zeros</span><span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">a</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token operator">=</span><span class="token number">50</span><span class="token punctuation">;</span><span class="token function">a</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token operator">=</span><span class="token number">40</span><span class="token punctuation">;</span><span class="token function">a</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token operator">=</span><span class="token number">25</span><span class="token punctuation">;</span><span class="token function">a</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">)</span><span class="token operator">=</span><span class="token number">10</span><span class="token punctuation">;</span>
+<span class="token function">a</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token operator">=</span><span class="token number">15</span><span class="token punctuation">;</span><span class="token function">a</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token operator">=</span><span class="token number">20</span><span class="token punctuation">;</span><span class="token function">a</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">)</span><span class="token operator">=</span><span class="token number">25</span><span class="token punctuation">;</span>
+<span class="token function">a</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token operator">=</span><span class="token number">10</span><span class="token punctuation">;</span><span class="token function">a</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token operator">=</span><span class="token number">20</span><span class="token punctuation">;</span>
+<span class="token function">a</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token operator">=</span><span class="token number">10</span><span class="token punctuation">;</span><span class="token function">a</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">)</span><span class="token operator">=</span><span class="token number">25</span><span class="token punctuation">;</span>
+<span class="token function">a</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">)</span><span class="token operator">=</span><span class="token number">55</span><span class="token punctuation">;</span>
+s<span class="token operator">=</span><span class="token function">cellstr</span><span class="token punctuation">(</span><span class="token function">strcat</span><span class="token punctuation">(</span><span class="token string">'v'</span><span class="token punctuation">,</span><span class="token function">int2str</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">6</span><span class="token punctuation">]</span><span class="token operator">'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">%顶点字符串</span>
+G<span class="token operator">=</span><span class="token function">graph</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span>s<span class="token punctuation">,</span><span class="token string">'Upper'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">%利用邻接矩阵的上三角元素构造无向图</span>
+<span class="token keyword">for</span> <span class="token number">i</span> <span class="token operator">=</span><span class="token number">2</span><span class="token operator">:</span><span class="token number">6</span>
+    <span class="token punctuation">[</span>p<span class="token punctuation">,</span>d<span class="token punctuation">]</span><span class="token operator">=</span><span class="token function">shortestpath</span><span class="token punctuation">(</span>G<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">i</span><span class="token punctuation">)</span> <span class="token comment">%求最短路径和最短距离</span>
+<span class="token keyword">end</span>
+d <span class="token operator">=</span> <span class="token function">distances</span><span class="token punctuation">(</span>G<span class="token punctuation">,</span><span class="token string">'Method'</span><span class="token punctuation">,</span><span class="token string">'positive'</span><span class="token punctuation">)</span> <span class="token comment">%反复调用Dijkstra算法求最短矩阵</span>
+n<span class="token operator">=</span><span class="token function">length</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span> b<span class="token operator">=</span>a<span class="token operator">+</span>a<span class="token operator">'</span><span class="token punctuation">;</span>  <span class="token comment">%构造完整的邻接矩阵</span>
+<span class="token function">b</span><span class="token punctuation">(</span>b<span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token operator">=</span><span class="token keyword">inf</span><span class="token punctuation">;</span> <span class="token comment">%把零元素换成inf</span>
+<span class="token function">b</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token operator">:</span>n<span class="token operator">+</span><span class="token number">1</span><span class="token operator">:</span><span class="token keyword">end</span><span class="token punctuation">)</span><span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> <span class="token comment">%把对角线元素换成0</span>
+<span class="token keyword">for</span> k<span class="token operator">=</span><span class="token number">1</span><span class="token operator">:</span>n
+    <span class="token keyword">for</span> <span class="token number">i</span><span class="token operator">=</span><span class="token number">1</span><span class="token operator">:</span>n
+        <span class="token keyword">for</span> <span class="token number">j</span><span class="token operator">=</span><span class="token number">1</span><span class="token operator">:</span>n
+            <span class="token keyword">if</span> <span class="token function">b</span><span class="token punctuation">(</span><span class="token number">i</span><span class="token punctuation">,</span>k<span class="token punctuation">)</span><span class="token operator">+</span><span class="token function">b</span><span class="token punctuation">(</span>k<span class="token punctuation">,</span><span class="token number">j</span><span class="token punctuation">)</span><span class="token operator">&lt;</span><span class="token function">b</span><span class="token punctuation">(</span><span class="token number">i</span><span class="token punctuation">,</span><span class="token number">j</span><span class="token punctuation">)</span>
+                <span class="token function">b</span><span class="token punctuation">(</span><span class="token number">i</span><span class="token punctuation">,</span><span class="token number">j</span><span class="token punctuation">)</span><span class="token operator">=</span><span class="token function">b</span><span class="token punctuation">(</span><span class="token number">i</span><span class="token punctuation">,</span>k<span class="token punctuation">)</span><span class="token operator">+</span><span class="token function">b</span><span class="token punctuation">(</span>k<span class="token punctuation">,</span><span class="token number">j</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">end</span>
+        <span class="token keyword">end</span>
+    <span class="token keyword">end</span>
+<span class="token keyword">end</span>
+b  <span class="token comment">%显示两两顶点之间的最短距离</span>
+<span class="token comment">%[p,d]=shortestpath(G,1,3) %求最短路径和最短距离</span>
+<span class="token comment">%h=plot(G,'EdgeLabel',G.Edges.Weight);  %画无向图</span>
+<span class="token comment">%highlight(h,p,'EdgeColor','r','LineWidth',2) %最短路径加粗</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>以下为$matlab$命令行结果输出。</p>
+<pre class="line-numbers language-out" data-language="out"><code class="language-out">p &#x3D;
+
+     1     6     2
+
+
+d &#x3D;
+
+    35
+
+
+p &#x3D;
+
+     1     5     4     3
+
+
+d &#x3D;
+
+    45
+
+
+p &#x3D;
+
+     1     5     4
+
+
+d &#x3D;
+
+    35
+
+
+p &#x3D;
+
+     1     5
+
+
+d &#x3D;
+
+    25
+
+
+p &#x3D;
+
+     1     6
+
+
+d &#x3D;
+
+    10
+
+
+d &#x3D;
+
+     0    35    45    35    25    10
+    35     0    15    20    30    25
+    45    15     0    10    20    35
+    35    20    10     0    10    25
+    25    30    20    10     0    35
+    10    25    35    25    35     0
+
+
+b &#x3D;
+
+     0    35    45    35    25    10
+    35     0    15    20    30    25
+    45    15     0    10    20    35
+    35    20    10     0    10    25
+    25    30    20    10     0    35
+    10    25    35    25    35     0<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="T27"><a href="#T27" class="headerlink" title="T27"></a>T27</h2><p>人、羊、狼、菜在岸上（岸的一边）一共有$2^4=16$​中可能，其中排除狼羊菜、羊菜、狼羊、人、人狼、人羊这$6$​种可能，还剩$10$​种，每种可能为$1$​个顶点，两顶点有边当且仅当两种情形可以通过一次运送转变，原题等价于求人样狼菜到空的一条最短路。可用$Dijkstra$​算法。本题比较简单，事实上画出图就可以立刻求得。有两条登场路线。</p>
+<p>1.人羊狼菜$\rightarrow$狼菜$\rightarrow$人狼菜$\rightarrow$狼$\rightarrow$人狼羊$\rightarrow$羊$\rightarrow$人羊$\rightarrow$空</p>
+<p>2.人羊狼菜$\rightarrow$狼菜$\rightarrow$人狼菜$\rightarrow$菜$\rightarrow$人羊菜$\rightarrow$羊$\rightarrow$人羊$\rightarrow$空</p>
+<p>事实上有两条这件事情也可以从狼和菜的地位是相同的这一点看出来。</p>
+<h2 id="T28"><a href="#T28" class="headerlink" title="T28"></a>T28</h2><p>设$x_1、x_2、x_3$​分别表示$8、5、3$​升瓶子中的酒量，则$x_1+x_2+x_3=8$​，$x_1\leq8,x_2\leq5,x_3\leq3$​，可能的组合一共有$(3+1)\times(5+1)=24$​种，每种情形表示一个顶点，两顶点之间有边当且仅当可以通过一次倒酒转化，原题等价与求$(8,0,0)\rightarrow(4,4,0)$​的最短路。可用$Dijkstra$​算法。</p>
+<p>$(8,0,0)\rightarrow(3,5,0)\rightarrow(3,2,3)\rightarrow(6,2,0)\rightarrow(6,0,2)\rightarrow(1,5,2)\rightarrow(1,4,3)\rightarrow(4,4,0)$</p>
+<h2 id="T29"><a href="#T29" class="headerlink" title="T29"></a>T29</h2><p>假设至多只有一个度为$1$​的顶点，由连通图知没有度为$0$​的顶点，则$\sum deg(v)=2\epsilon(G)\geq2\nu(G)-1$，由于$\epsilon(G)$是整数，易知$\epsilon(G)\geq\nu(G)$，与$\epsilon(G)&lt;\nu(G)$矛盾！故至少有两个度数为$1$​的顶点。</p>
+<p>当然本题也可以用数学归纳法，不赘述。</p>
 
                 
             </div>
@@ -1124,7 +1264,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">110.2k</span>&nbsp;字
+                class="white-color">112k</span>&nbsp;字
             
             
             
