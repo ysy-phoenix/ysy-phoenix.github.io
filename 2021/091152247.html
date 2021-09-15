@@ -473,7 +473,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-09-12
+                    2021-09-15
                 </div>
                 
 
@@ -519,9 +519,8 @@
 <p>（2）反例易举，从略。</p>
 <h2 id="T3"><a href="#T3" class="headerlink" title="T3"></a>T3</h2><p>共12个，从变数考虑：0、1、5、6条边各1个，2、4条边各2个，3条边4个。图略。</p>
 <h2 id="T4"><a href="#T4" class="headerlink" title="T4"></a>T4</h2><p>构作图$G=(V,E)$，其中$V$为人员集合，每个人作为一个顶点，两顶点间有边当且仅当两人是朋友，这样，对每个人$v$来说，朋友数就是其在图中的度数$deg(v)$​。假设任意两个人的朋友数不同，即任意两个顶点的度数不同，则度数序列只能为$n-1,n-2,\cdots,1,0$。其中$n-1$表明图中没有孤立点，但是$0$表示图中有一个孤立点，矛盾！故假设不成立，得证。</p>
-<h2 id="T5"><a href="#T5" class="headerlink" title="T5"></a>T5</h2><p>构作图$G=(V,E)$，其中$V$为人员集合，每个人作为一个顶点，两顶点间有边当且仅当两人是认识，则原题等价于，若$\nu(G)=2n,\forall v \in V(G),deg(v)\geq n$​，则图中存在长度至少为$4$的圈。</p>
-<p>若$n=2$，容易验证图的可能情形只有三种，且都存在长度为$4$的圈。</p>
-<p>若$n\geq3$，则$\delta(G)\geq 3$​，进而图中必定存在偶圈，而偶圈长度至少为$4$（例$1.10$）。</p>
+<h2 id="T5"><a href="#T5" class="headerlink" title="T5"></a>T5</h2><p>构作图$G=(V,E)$，其中$V$为人员集合，每个人作为一个顶点，两顶点间有边当且仅当两人是认识，则原题等价于，若$\nu(G)=2n,\forall v \in V(G),deg(v)\geq n\geq2$，则图中存在长度至少为$4$的圈。</p>
+<p>若图为完全图，则显然成立。否则，必定存在两点$v_1,v_2$不相邻，而$deg(v_1)+deg(v_2)\geq2n$，故余下的$2n-2$个顶点中必定有两个点$v_3,v_4$与$v_1,v_2$都相邻，考虑圈$v_1v_3v_2v_4v_1$即符合题意。</p>
 <h2 id="T6"><a href="#T6" class="headerlink" title="T6"></a>T6</h2><p>考虑进行标号，以下顺序自上而下，自左而右。对于左图，$A，DCB，EF，GH，IJ$。对于右图，$A，DCB，JHE，IGF$。图略。</p>
 <h2 id="T7"><a href="#T7" class="headerlink" title="T7"></a>T7</h2><p>（1）由二分图定义及乘法原理，不妨设二分图划分为$V(G)=X\cup Y ,|X|=m,|Y|=n$，则所有的边必定一端在$X$中，另一端在$Y$中，而$\forall x \in X,deg(x)=n$，从而$\epsilon(G)=mn$。</p>
 <p>（2）结合上一小题结论有，$\epsilon(G)=mn$，而$\nu(G)=m+n$，利用基本不等式立得$\epsilon(G)\leq\frac{\nu^2(G)}{4}$。$(mn\leq \frac{(m+n)^2}{4})$</p>
