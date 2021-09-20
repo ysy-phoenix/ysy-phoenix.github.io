@@ -4,7 +4,7 @@
 
 <head>
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-    <meta name="keywords" content="Hash函数, Phoenix">
+    <meta name="keywords" content="《图论导引》chap3习题解答, Phoenix">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Hash函数 | Phoenix</title>
+    <title>《图论导引》chap3习题解答 | Phoenix</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -320,12 +320,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/images/a5.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/images/b1.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Hash函数</h1>
+                    <h1 class="description center-align post-title">《图论导引》chap3习题解答</h1>
                 </div>
             </div>
         </div>
@@ -441,10 +441,6 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/crypto/">
-                                <span class="chip bg-color">crypto</span>
-                            </a>
-                        
                             <a href="/tags/%E5%A4%87%E4%BB%BD/">
                                 <span class="chip bg-color">备份</span>
                             </a>
@@ -457,8 +453,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/CTF/" class="post-category">
-                                CTF
+                            <a href="/categories/%E5%9B%BE%E8%AE%BA/" class="post-category">
+                                图论
                             </a>
                         
                     </div>
@@ -470,14 +466,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-09-02
+                    2021-09-20
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-09-02
+                    2021-09-20
                 </div>
                 
 
@@ -487,14 +483,14 @@
     <i class="fa fa-pencil"></i> 作者: Phoenix
     
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    364
+                    3.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    13 分
                 </div>
                 
 
@@ -517,25 +513,65 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Hash函数"><a href="#Hash函数" class="headerlink" title="Hash函数"></a>Hash函数</h1><h2 id="MD5"><a href="#MD5" class="headerlink" title="MD5"></a>MD5</h2><h3 id="基本描述"><a href="#基本描述" class="headerlink" title="基本描述"></a>基本描述</h3><p>MD5 的输入输出如下</p>
-<ul>
-<li>输入：任意长的消息，512 比特长的分组。</li>
-<li>输出：128 比特的消息摘要。</li>
-</ul>
-<p>MD5算法的原理可简要的叙述为：MD5码以512位分组来处理输入的信息，且每一分组又被划分为16个32位子分组，经过了一系列的处理后，算法的输出由四个32位分组组成，将这四个32位分组级联后将生成一个128位散列值。</p>
-<p>总体流程如下图所示，每次的运算都由前一轮的128位结果值和当前的512bit值进行运算 。</p>
-<p>其底层实现较为复杂（sigh）</p>
-<p>此外，有时候我们获得到的 md5 是 16 位的，其实那 16 位是 32 位 md5 的长度，是从 32 位 md5 值来的。是将 32 位 md5 去掉前八位，去掉后八位得到的。</p>
-<p>一般来说，我们可以通过函数的初始化来判断是不是 MD5 函数。一般来说，如果一个函数有如下四个初始化的变量，可以猜测该函数为 MD5 函数，因为这是 MD5 函数的初始化 IV。</p>
-<pre class="line-numbers language-none"><code class="language-none">0x67452301，0xEFCDAB89，0x98BADCFE，0x10325476<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h3 id="破解"><a href="#破解" class="headerlink" title="破解"></a>破解</h3><p>目前可以说 md5 已经基本被攻破了，一般的 MD5 的碰撞都可以在如下网上获取到</p>
-<ul>
-<li><a target="_blank" rel="noopener" href="http://www.cmd5.com/">http://www.cmd5.com/</a></li>
-<li><a target="_blank" rel="noopener" href="http://www.ttmd5.com/">http://www.ttmd5.com/</a></li>
-<li><a target="_blank" rel="noopener" href="http://pmd5.com/">http://pmd5.com/</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.win.tue.nl/hashclash/fastcoll_v1.0.0.5.exe.zip">https://www.win.tue.nl/hashclash/fastcoll_v1.0.0.5.exe.zip</a> (生成指定前缀的 md5 碰撞)</li>
-</ul>
+                <h1 id="《图论导引》chap3习题解答"><a href="#《图论导引》chap3习题解答" class="headerlink" title="《图论导引》chap3习题解答"></a>《图论导引》chap3习题解答</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>本系列题解中，有一些题思考半小时以上无果，则留坑，后续若有解答再填坑$(doge)$。</p>
+<h2 id="T1"><a href="#T1" class="headerlink" title="T1"></a>T1</h2><p>由于G是$k-$边连通图，故$\forall e\in E’, G-E’+e$连通。若$\exists e\in E’,s.t.\ e$是$G-E’+e$的割边，则$\omega(G-E’)=2$，否则，$\omega(G-E’)=1$。</p>
+<h2 id="T2"><a href="#T2" class="headerlink" title="T2"></a>T2</h2><p>对于$\forall k&gt;0$，首先构造$K_k$，然后再取图外三个顶点，每个顶点都与$K_k$​上的每个顶点连一条边，显然所得图$G$是$k-$​连通图，而删去$K_k$上所有$k$个顶点，得到$\omega(G-V’)=3&gt;2$。</p>
+<h2 id="T3"><a href="#T3" class="headerlink" title="T3"></a>T3</h2><p>若$\delta(G)=\nu(G)-1$，图为$K_{\nu(G)}$，显然有$\kappa(G)=\delta(G)=\nu(G)-1$。</p>
+<p>若$\delta(G)=\nu(G)-2$，任取$v_1,v_2,v_3\in V(G)$，若两两相邻，则这三个顶点连通；若有不相邻，不妨$v_1,v_2$不相邻，由于$\delta(G)=\nu(G)-2$，$v_1v_3,v_2v_3\in E(G)$。所以对任意</p>
+<p>的$|V’|=\nu(G)-3$，$G-V’$仍然连通，因此$\kappa(G)\geq\nu(G)-2$。又$\kappa(G)\leq \delta(G)$，从而$\kappa(G)=\delta(G)$。</p>
+<h2 id="T4"><a href="#T4" class="headerlink" title="T4"></a>T4</h2><p>若$\nu(G)=4$，$G=K_2+K_2$。若$\nu(G)&gt;4$，令$K_2+K_2$每个顶点与$K_{\nu(G)-4}$的每个顶点连一条边，从而$\kappa(G)\leq\nu(G)-4&lt;\nu(G)-3=\delta(G)$​。（$K_{\nu(G)-4}$中的点作为顶点割集）</p>
+<h2 id="T5"><a href="#T5" class="headerlink" title="T5"></a>T5</h2><p>由题得$\exists \kappa’(G)$条边，删去这$\kappa’(G)$​​条边后，图有两个连通分支$G_1,G_2$，不妨$|V(G_1)|=l\leq\nu(G)/2\leq\delta(G)$​。</p>
+<p>注意到在图$G$中，$G_1$​的每个顶点至少有$\delta(G)-(l-1)$条边与$G_2$相连，从而$\kappa’(G)\geq(\delta(G)-(l-1))\times l\geq\delta(G)$，后面不等式成立等价于$\delta(G)(l-1)\geq l(l-1)$​。又由$\kappa’(G)\leq\delta(G)$，从而$\kappa’(G)=\delta(G)$。</p>
+<h2 id="T6"><a href="#T6" class="headerlink" title="T6"></a>T6</h2><p>考虑在$G$​中任删$k-1$​个顶点，得到$G_1$,则$\delta(G_1)\geq\delta(G)-(k-1)\geq\frac{1}{2}(\nu(G)+k-2)-(k-1)=\frac{1}{2}(\nu(G)-k)=\frac{1}{2}(\nu(G_1)-1)&gt;\frac{1}{2}\nu(G_1)-1$​。利用结论$\forall G,\delta(G)&gt;[\nu(G)/2]-1,G$连通。从而知$G_1$连通，故$G$是$k$​连通图。</p>
+<p>特别地，对于完全图，$\kappa(G)=\nu(G)-1$，则$k$只能取$\leq\nu(G)-1$</p>
+<p>补充结论证明：若$G$不连通，至少有两个连通分支$G_1,G_2$，且必定存在一个连通分支，不妨$|V(G_1)|\leq[\nu(G)/2]$，从而$G_1$上顶点的度$\leq[\nu(G)/2]-1$，与$\delta(G)&gt;[\nu(G)/2]-1$矛盾！</p>
+<h2 id="T7"><a href="#T7" class="headerlink" title="T7"></a>T7</h2><p>构造图$G$​如下，首先取两个$K_{n+1}$，在其中一个$K_{n+1}$上取$l$个点，另一个取$m$个点，在这些点之间连$m$条边，使得那$l$个点，每点至少连一条边，那$m$个点，每点恰好连一条边，这样的图符合题意。</p>
+<h2 id="T8"><a href="#T8" class="headerlink" title="T8"></a>T8</h2><p>不一定。参见教材图$3.2$，对于$P(x,z)=xuyvz$​，就找不到另一条无公共内顶的轨道。（这条轨道已经包含图上所有点）</p>
+<h2 id="T9"><a href="#T9" class="headerlink" title="T9"></a>T9</h2><p>$G$​​中的块若是$1$​​点，则为$1-$​​圈，若是$2$​​点，则为$K_2$​​​，以下证明大于$2$​​​​点的块是奇圈。记块为$B$​​，易知$B$​​中有圈，设为$C$​​，$c\in V(C)$​​。若$C$​​外还有$B$​​中顶点$a$​​，由定理$3.8$​​知存在包含顶点$c,a$​​的圈$C’$​​。从$a$​出发，沿圈$C’$​两个方向前进，设与圈$C$​相交的第一个点为$u、v$​。由于不含偶圈，故$C$​​是奇圈​，则圈$C$​上轨道$u-c-v$​和$u-b-v$​长度必定一奇一偶。那么圈$u-c-v-a-u$​和$u-b-v-a-u$​必定有一个长度为偶数，矛盾！从而圈$C$上包含了块$B$上的所有点，为奇圈。</p>
+<p>事实上，从假设有不在圈$C$上的边$e$出发，也能推出同样的矛盾。</p>
+<h2 id="T10"><a href="#T10" class="headerlink" title="T10"></a>T10</h2><p>假设$v$​​不是割顶，那么删去$v$​，图$G$​​仍然连通​，考虑$G_1+G_2$​，则$v$不是$G_1+G_2$的割顶，而对于$G_1+G_2$中的其它顶点，不妨设删去$v\in G_1$，由于$G_1$是快，故$G_1$仍连通，又$G_1、G_2$有公共​​顶点$v$，故$G_1$与$G_2$仍连通，从而$v$不是割顶，同理，$G_2$中任意点也不是割顶，从而$G_1+G_2$是比$G_1$更大的块，与$G_1$是块矛盾！故$v$是割顶。</p>
+<h2 id="T11"><a href="#T11" class="headerlink" title="T11"></a>T11</h2><p>若$G$​​​仅有唯一割顶$v$，删去后至少两个连通分支，则任一连通分支+$v$就是块，成立。</p>
+<p>若$G$​​有两个及以上的割顶。考虑吧以割顶为两端点的最长轨道$P$​​，考虑$B$​​是含$P$​端点（即割顶）但不含$P$​上边的块（由连通分支+割顶式构造，只这样的块一定存在），且$B$不可能同时含有$P$两端点，否则，必定有含$B$且含$P$上边的更大块，与$B$是块矛盾！若$B$还含有除$P$两端点外的割顶，则必定与$P$是以割顶为两端点的最长轨道矛盾！从而$B$是仅包含一个割顶的块，有于$P$有两端点，故至少有两个仅包含一个割顶的块。</p>
+<h2 id="T12"><a href="#T12" class="headerlink" title="T12"></a>T12</h2><p>（1）对边数$\epsilon$​作归纳。</p>
+<p>若$\epsilon=3$，只能是$K_3$，有度为$2$的顶点，成立。</p>
+<p>假设$\epsilon$时成立，对$\epsilon+1$情形，任取$e_1=v_1v_2$，下证$G\cdot e_1$​仍是块。</p>
+<p>事实上，若$G\cdot e_1$有割顶，显然只能是$e_1$收缩后的点。那么${v_1,v_2}$是$G$的顶点割集，考虑点$u、v$，若在$G$的不同块中，则由$Menger$定理，$u、v$之间存在两条无公共内顶的轨道分别经过$v_1、v_2$，则在$G-e_1$中在同一个圈上；若$u、v$在同一块中，显然在$G-e_1$中在同一个圈上。由定理$3.8$知$G-e_1$是块，与$G$是$\kappa$临界矛盾！从而$G\cdot e_1$仍是块。</p>
+<p>$1.$​若$G\cdot e_1$​是临界块，则$G\cdot e_1$​为$\epsilon$​情形，由归纳假设，有度为$2$​的顶点$v_0$，若不是收缩后的顶点，则在$G$中度为$2$；若是收缩后的点，则$v_1、v_2$在$G$中必定度都为$2$。</p>
+<p>$2.$若$G\cdot e_1$不是临界块，则$G\cdot e_1$中必定有一边$e_2$使得，使得$G\cdot e_1-e_2$仍是块。而由$G$临界知$G-e_2$不是块，存在割顶，而$(G-e_2)\cdot e_1=(G\cdot e_1)-e_2$是块，则$G-e_2$被收缩的边$e_1$必然有一端点$v_1$度为$1$，又$G$是块，故在$G$中$v_1$必然与$e_2$关联​，则$v_1$度为$2$。</p>
+<p>（2）对顶点数$\nu$作归纳</p>
+<p>若$\nu=4$，只能是四边形，满足$\epsilon=2\nu-4$。</p>
+<p>假设$\nu$​时成立，下考虑$\nu+1$​时情形。由（1）知存在顶点$v_0$​度为$2$​。记其关联的两边为$e_1,e_2$​。</p>
+<p>若$G\cdot e_1$是临界块，则$\epsilon(G\cdot e_1)\leq 2(\nu+1-1)-4=2\nu-4$，而$\epsilon(G)=\epsilon(G\cdot e_1)+1\leq2\nu(G)-4+1&lt;2(\nu(G)+1)-4$。</p>
+<p>若$G\cdot e_1$不是临界块。则存在$e_3$，$G\cdot e_1-e_3$是块，若$e_3\neq e_2$。则$G-e_3$是块，与$G$临界矛盾！故$e_3=e_2$，$G\cdot e_1-e_2$是块。若$G\cdot e_1-e_2$不临界，则存在$e_4$，$G\cdot e_1-e_2-e_4=G-v_0-e_4$是块，则$G-e_4$是块，与$G$临界矛盾！故$G\cdot e_1-e_2$是临界块，有归纳假设，$\epsilon(G\cdot e_1-e_2)\leq2(\nu+1-1)-4$，从而$\epsilon(G)=\epsilon(G\cdot e_1-e_2)+2\leq2(\nu(G)+1)-4$​。</p>
+<p>综上，证毕。</p>
+<p>（3）参考上述证明过程，要使得每一步都取等。对$n$​阶​临界块，取一个顶点，分出一条悬挂边，然后，令悬挂边的另一端点与图中其它顶点相连，则构造出$n+1$​​阶的图。这样的图可以画出来，此处图略。描述如下：先取$2$个顶点，记为$v_1,v_2$，剩下$\nu-2$个顶点，每个顶点与$v_1,v_2$连两条边，共有$2\nu-4$条边，且容易验证为最小$2-$​连通图。</p>
+<h2 id="T13"><a href="#T13" class="headerlink" title="T13"></a>T13</h2><p>书上提示辅助图，表示没看明白（$ORZ$​)。大概猜测是利用边图，所以能从顶点版本导出边版本？留个坑。</p>
+<h2 id="T14"><a href="#T14" class="headerlink" title="T14"></a>T14</h2><p>$(1)\Rightarrow(2)$：若$e$在圈上，则去掉仍连通，与$e$​是桥矛盾！</p>
+<p>$(2)\Rightarrow(1)$​​​：不妨$e=uv$​​​，由于$e$​​​不再任何圈上，则$u、v$​​​之间无其它轨道，去掉$e$​​，$u、v$​不连通，故$e$​是桥。​</p>
+<p>$(1)\Rightarrow(4)$​​​​​：​因为$e$​​是桥，所以$G-e$​不连通，有两个连通片$U、W$​。于是任给$u\in U,w\in W$​，$G$​中每一条从$u$​到$v$​的轨道都含$e$​。否则，$P(u,w)$​不含$e$，则也是$G-e$中的轨道，则$u,w$在同一连通片，矛盾！</p>
+<p>$(4)\Rightarrow(3)$：$(4)$的特例，自然成立。</p>
+<p>$(3)\Rightarrow(1)$：若$e$在每一条$u$到$w$的轨道上，则$G-e$中不存在从$u$到$w$的轨道，$G-e$不连通，故$e$是桥。</p>
+<h2 id="T15"><a href="#T15" class="headerlink" title="T15"></a>T15</h2><p>设$T$是$G$的一棵生成树，则$T$只有两个顶点不是割顶，则$T$只有两片树叶$v_1,v_2$，从而$T$是一条轨道。则$G$只能是轨道，因为$G$可看作是在$T$上加边得到，加边，必然产生圈，若圈不同时含$v_1,v_2$​，不妨则圈上还有点不是割顶，即$G$除$v_1,v_2$外还有不是割顶的点，矛盾！；若整个$G$是圈，则无割顶，矛盾！</p>
+<h2 id="T16"><a href="#T16" class="headerlink" title="T16"></a>T16</h2><p>假设有桥$e=uv$，则有两连通分支，$u$在其中一个连通分支，且只有$u$度数为奇数，与推论$1.1$矛盾！</p>
+<h2 id="T17"><a href="#T17" class="headerlink" title="T17"></a>T17</h2><p>（1）由于$\nu(G)\geq3$，且有桥$e=uv$，则$\omega(G-v)\geq\omega(G-e)=2&gt;\omega(G)=1$</p>
+<p>（2）反例易举，如沙漏状的图。</p>
+<h2 id="T18"><a href="#T18" class="headerlink" title="T18"></a>T18</h2><p>充分性：显然，取桥的一端点即为割顶。</p>
+<p>必要性：记与割顶$v$​相邻三点为$v_1,v_2,v_3$​​，删去割顶，若分成$3$​个连通片，显然与$v$关联的三边都是桥；若分成两个连通片，​三点中必有两点分属于两个不同的连通片，不妨$v_1$​与$v_2$​，再设$v_2$与$v_3$在同一连通片，则$G-vv_1$中，$v_1$与$v_2$不相邻，从而$vv_1$是桥。</p>
+<h2 id="T19"><a href="#T19" class="headerlink" title="T19"></a>T19</h2><p>集合中元素数目应为$n$，先构造边集合，然后从每条轨道上取一个点就可以构造点集合。具体的构造思路是考虑所有轨道长都为$n$，我们只需要去找中间的$n-1$个点，不妨记轨道为$v_0v_1\cdots v_n$，则取第$k$条轨道的$v_i=(0,\cdots,0,1,\cdots,1,0,\cdots,0)$即可，从第$k$个分量开始，连续$i$个为$1$，注意首尾循环。</p>
+<h2 id="T20"><a href="#T20" class="headerlink" title="T20"></a>T20</h2><p>参照$T12(1)$​​证明过程，对边数作归纳，关键一步是，若有不可收缩的边，删去，则降阶，由归纳假设有可收缩边。</p>
+<h2 id="T21"><a href="#T21" class="headerlink" title="T21"></a>T21</h2><p>参照$T12(1)$证明过程，注意只需要在证明过程中将$\forall e_1=uv$中的$e_1$改为不可删除的边即可，也就是去证不可删除的边一定是可收缩边。</p>
+<h2 id="T22"><a href="#T22" class="headerlink" title="T22"></a>T22</h2><p>类似推论$3.2$​的证明过程，增加顶点$z$​，与$Y$​中每个顶点连一条边，由引理$3.1$​知，是$k-$​连通图，再由$Menger$定理得到，存在从$x$到$z$的$K$​条，无公共內顶的轨道，这些轨道其中一端的边必定是$zy_i$，将每条轨道上的$zy_i$删去，立得$k-$扇形。</p>
+<h2 id="T23"><a href="#T23" class="headerlink" title="T23"></a>T23</h2><p>汗颜，没构造出来，包括后面那个$6-$连通图那个也不会证。留个坑。</p>
+<h2 id="T24"><a href="#T24" class="headerlink" title="T24"></a>T24</h2><p>若$Y\subseteq Z$​​​，显然成立。否则由$|Y|&lt;|Z|$​知$|Y-Z|&lt;|Z-Y|$​，假设不存在符合题意的$z$，对$\forall z\in Z-Y$，从$x$到$z$的轨道都与从$x$到$Y-Z$​上的轨道有公共内顶，由抽屉原理，不妨从$x$到$z_1,z_2$的这两条（无公共内顶）轨道与从$x$到$y_1$的轨道有公共内顶$v_1,v_2$。则$P(x,z_1)$与$P(x,v_2)+P(v_2,y)$是两条无公共内顶的轨道，将前者加入从$x$到$Y$的扇形，即符合题意，这与假设矛盾！故假设不成立。</p>
+<h2 id="T25"><a href="#T25" class="headerlink" title="T25"></a>T25</h2><p>（a）直接反证，然后删去$e$，推出与最小$k-$边连通矛盾！</p>
+<p>下面的小题感觉是$T12$的进阶版（$ORZ$）,留坑。</p>
+<h2 id="T26"><a href="#T26" class="headerlink" title="T26"></a>T26</h2><p>参照$P70$的构造方法。</p>
+<h2 id="T27"><a href="#T27" class="headerlink" title="T27"></a>T27</h2><p>将证明$H_{n,2r+1}$中不存在少于$2r+1$​个顶点的顶割集。</p>
+<p>（1）$|V’|&lt;2r$，参见教材证明，不是$H_{n,2r}$的顶割集，自然不会是加了边的$H_{n,2r+1}$的顶割集。</p>
+<p>（2）$|V’|=2r$，假设$i,j$是分属于$H_{n,2r+1}$的两个连通片的顶点，考虑$H_{n,2r}$的两个顶点子集<br>$$<br>S=\{i,i+1,\cdots,j\}<br>$$<br>和<br>$$<br>T=\{j,j+1,\cdots,i\}<br>$$<br>其中的加法在$mod\ n$意义下进行，若有一个集合含$V’$顶点少于$r$个，参见教材证明，$i,j$连通。否则，都含有$V’r$个顶点。</p>
+<p>$1.$​若至少一个集合，不妨$S$​中的那$r$​​个顶点不是相继连成段的，同样参见教材证明，$i,j$连通。</p>
+<p>$2.$若两个集合中含$V’$的$r$个顶点都是相继连成段的，记$S-V’=S_1+S_2$，$S_1$含$i$，$S_2$含$j$，同样划分$T-V’=T_1+T_2$，$T_1$含$i$，$T_2$含$j$。则$V-V’$也被分为两段，$S_1+T_1$含$i$，$S_2+T_2$含$j$。这两段本身是连通的，且含$i$段的中间点$i_0$和含$j$段的中间点$j_0$满足$j_0=i_0+\lceil n/2 \rceil$​，故有边相连，从而有轨道$P(i,\cdots,i_0,j_0,\cdots,j)$。矛盾！</p>
+<h2 id="T28"><a href="#T28" class="headerlink" title="T28"></a>T28</h2><p>原图任删$k-1$条边仍连通，收缩后，同样任删$k-1$条边仍连通。</p>
 
                 
             </div>
@@ -562,7 +598,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://ysy-phoenix.github.io/2021/09023969.html">https://ysy-phoenix.github.io/2021/09023969.html</a>
+                    <a href="https://ysy-phoenix.github.io/2021/092036368.html">https://ysy-phoenix.github.io/2021/092036368.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -599,10 +635,6 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            
-                                <a href="/tags/crypto/">
-                                    <span class="chip bg-color">crypto</span>
-                                </a>
                             
                                 <a href="/tags/%E5%A4%87%E4%BB%BD/">
                                     <span class="chip bg-color">备份</span>
@@ -775,16 +807,17 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2021/090244648.html">
+                <a href="/2021/092036368.html">
                     <div class="card-image">
                         
-                        <img src="/images/a2.jpg" class="responsive-img" alt="分组密码">
+                        <img src="/images/b1.jpg" class="responsive-img" alt="《图论导引》chap3习题解答">
                         
-                        <span class="card-title">分组密码</span>
+                        <span class="card-title">《图论导引》chap3习题解答</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -794,27 +827,24 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-09-02
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-09-20
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/CTF/" class="post-category">
-                                    CTF
+                            <a href="/categories/%E5%9B%BE%E8%AE%BA/" class="post-category">
+                                    图论
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
-                    
-                    <a href="/tags/crypto/">
-                        <span class="chip bg-color">crypto</span>
-                    </a>
                     
                     <a href="/tags/%E5%A4%87%E4%BB%BD/">
                         <span class="chip bg-color">备份</span>
@@ -831,13 +861,12 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/090233205.html">
+                <a href="/2021/09193858.html">
                     <div class="card-image">
                         
+                        <img src="/images/a9.jpg" class="responsive-img" alt="《图论导引》chap2习题解答">
                         
-                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="古典密码">
-                        
-                        <span class="card-title">古典密码</span>
+                        <span class="card-title">《图论导引》chap2习题解答</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -848,14 +877,14 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-09-02
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-09-19
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/CTF/" class="post-category">
-                                    CTF
+                            <a href="/categories/%E5%9B%BE%E8%AE%BA/" class="post-category">
+                                    图论
                                 </a>
                             
                             
@@ -864,10 +893,6 @@
                 </div>
                 
                 <div class="card-action article-tags">
-                    
-                    <a href="/tags/crypto/">
-                        <span class="chip bg-color">crypto</span>
-                    </a>
                     
                     <a href="/tags/%E5%A4%87%E4%BB%BD/">
                         <span class="chip bg-color">备份</span>
