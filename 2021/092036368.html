@@ -473,7 +473,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-09-21
+                    2021-09-28
                 </div>
                 
 
@@ -483,14 +483,14 @@
     <i class="fa fa-pencil"></i> 作者: Phoenix
     
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.3k
+                    3.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    13 分
+                    14 分
                 </div>
                 
 
@@ -545,7 +545,8 @@
 <p>若$G\cdot e_1$不是临界块。则存在$e_3$，$G\cdot e_1-e_3$是块，若$e_3\neq e_2$。则$G-e_3$是块，与$G$临界矛盾！故$e_3=e_2$，$G\cdot e_1-e_2$是块。若$G\cdot e_1-e_2$不临界，则存在$e_4$，$G\cdot e_1-e_2-e_4=G-v_0-e_4$是块，则$G-e_4$是块，与$G$临界矛盾！故$G\cdot e_1-e_2$是临界块，有归纳假设，$\epsilon(G\cdot e_1-e_2)\leq2(\nu+1-1)-4$，从而$\epsilon(G)=\epsilon(G\cdot e_1-e_2)+2\leq2(\nu(G)+1)-4$​。</p>
 <p>综上，证毕。</p>
 <p>（3）参考上述证明过程，要使得每一步都取等。对$n$​阶​临界块，取一个顶点，分出一条悬挂边，然后，令悬挂边的另一端点与图中其它顶点相连，则构造出$n+1$​​阶的图。这样的图可以画出来，此处图略。描述如下：先取$2$个顶点，记为$v_1,v_2$，剩下$\nu-2$个顶点，每个顶点与$v_1,v_2$连两条边，共有$2\nu-4$条边，且容易验证为最小$2-$​连通图。</p>
-<h2 id="T13"><a href="#T13" class="headerlink" title="T13"></a>T13</h2><p>书上提示辅助图，表示没看明白（$ORZ$​)。大概猜测是利用边图，所以能从顶点版本导出边版本？留个坑。</p>
+<h2 id="T13"><a href="#T13" class="headerlink" title="T13"></a>T13</h2><p>大概思路是利用边图。</p>
+<p>注意如下细节：原图中两两无公共边的$u-v$轨道对应于边图中两两无公共内顶的轨道，最小边割集对应于最小顶割集，因此可以利用顶点版本导出边版本；另外，注意原图中的顶点$v$在边图中需要对应为子图$K_{deg(v)}$，原图中的$u-v$轨道需要在边图中的轨道两端再加上两条边（例如原图$v$关联边$e_1,e_2$，在边图中看成$K_2$，边对应为$u_1,u_2$，则最终的$u-v$轨道应该是边图中的$u_1-v_1$轨道转化而来再加上$e_1$或$e_2$）。</p>
 <h2 id="T14"><a href="#T14" class="headerlink" title="T14"></a>T14</h2><p>$(1)\Rightarrow(2)$：若$e$在圈上，则去掉仍连通，与$e$​是桥矛盾！</p>
 <p>$(2)\Rightarrow(1)$​​​：不妨$e=uv$​​​，由于$e$​​​不再任何圈上，则$u、v$​​​之间无其它轨道，去掉$e$​​，$u、v$​不连通，故$e$​是桥。​</p>
 <p>$(1)\Rightarrow(4)$​​​​​：​因为$e$​​是桥，所以$G-e$​不连通，有两个连通片$U、W$​。于是任给$u\in U,w\in W$​，$G$​中每一条从$u$​到$v$​的轨道都含$e$​。否则，$P(u,w)$​不含$e$，则也是$G-e$中的轨道，则$u,w$在同一连通片，矛盾！</p>
@@ -1131,7 +1132,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">119.4k</span>&nbsp;字
+                class="white-color">119.6k</span>&nbsp;字
             
             
             

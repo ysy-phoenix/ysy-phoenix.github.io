@@ -473,7 +473,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-09-20
+                    2021-09-28
                 </div>
                 
 
@@ -483,14 +483,14 @@
     <i class="fa fa-pencil"></i> 作者: Phoenix
     
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.9k
+                    3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    12 分
+                    13 分
                 </div>
                 
 
@@ -638,8 +638,10 @@ B &#x3D;
 <p>$1.$在图中找一个圈。</p>
 <p>$2.$​去掉该圈中权值最大的边。</p>
 <p>$3.$​重复$1、2$​过程，直至图中无圈，得到最小生成树。</p>
-<p>（2）以下仅作正确性说明。首先最后得到的是连通无圈图，也就是树，记为$T$​；其次，每次去掉的都是权值最大的边（贪心），类似教材$Prim$​算法的证明，若还有权值和更小的树$T^*$​，考虑第一条不在$T$​中的边$e$​，中间某步必定将$e$​去掉，说明$e$​权值大，从而矛盾，故得到的即为最小生成树。</p>
-<p>（3）不考虑优化存储方式，大约$O(\nu^3)$</p>
+<p>（2）首先最后得到的是连通无圈图，也就是树，记为$T’$​​。</p>
+<p>法一：考虑与$T’$变数重合最多的最小生成树$T$，记$G=T+T’$，根据破圈法的构造过程，$G-T’$​中的边的权值和一定大于等于$G-T$​​中的权值和，而$T$​是最小生成树，从而只能是相等，则$\omega(T)=\omega(T’)$​。</p>
+<p>法二：利用如下引理，$e$为图$G$某圈上权值最大的边，则在$G-e$上存在最小生成树，其也是$G$中的最小生成树，即$G$中含有不在$G-e$​中的最小生成树。详见《算法导论》$chap23$。</p>
+<p>（3）找一个圈上的权值最大的边可以用$DFS$，时间复杂度为$O(\nu)$，循环执行为$O(\epsilon)$，总体为$o(\epsilon\nu)$。</p>
 <h2 id="T17"><a href="#T17" class="headerlink" title="T17"></a>T17</h2><p>必要性：由定义，有且仅有根入度为$0$。</p>
 <p>充分性：由于有且仅有一点入度为$0$，则其余点的入度必定都$\geq1$。而由$\sum deg^+(v)=\epsilon(G)=\nu(G)-1\geq0+1\times(\nu(G)-1)$，从而等号成立，其余点入度为$1$，该有向树为有根树。</p>
 <h2 id="T18"><a href="#T18" class="headerlink" title="T18"></a>T18</h2><p>对$i$作归纳</p>
@@ -1262,7 +1264,7 @@ max_len <span class="token operator">=</span> <span class="token function">max</
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">119.4k</span>&nbsp;字
+                class="white-color">119.6k</span>&nbsp;字
             
             
             
