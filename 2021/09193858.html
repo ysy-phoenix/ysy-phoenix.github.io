@@ -473,7 +473,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-09-28
+                    2021-09-30
                 </div>
                 
 
@@ -483,14 +483,14 @@
     <i class="fa fa-pencil"></i> 作者: Phoenix
     
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3k
+                    3.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    13 分
+                    14 分
                 </div>
                 
 
@@ -689,20 +689,24 @@ max_len <span class="token operator">=</span> <span class="token function">max</
 &#96;e&#96; : 0 0 
 平均码长 : 2.250000<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="T22"><a href="#T22" class="headerlink" title="T22"></a>T22</h2><p>以下只说明三件事。</p>
-<p>$1.$考虑构造过程，首先$w_1$一定有兄弟。</p>
-<p>2.$w_1$深度一定最深（树高），否则与其权值最小矛盾。</p>
-<p>$3.$对于任一$Huffman$树，若$w_2$不是$w_1$兄弟，则必然有多个值等于$w_1$的，交换同一层的即可。</p>
-<h2 id="T23"><a href="#T23" class="headerlink" title="T23"></a>T23</h2><p>设$T_n$​是$n$​片树叶的最优树，合并$w_1+w_2$​为一片树叶得到$T_{n-1}’$​</p>
+<h2 id="T22"><a href="#T22" class="headerlink" title="T22"></a>T22</h2><p>首先说明，以下证明时认为引理描述中的$Huffman$树实际上应该是最优二叉树（这时还没有证明$Huffman$树是最优二叉树）。</p>
+<p>假设$T$是一棵最优二叉树。令$w_a&lt;w_b$​是其深度最大的兄弟节点，易知，$w_1\leq w_a,w_2\leq w_b$，若$w_1=w_b$，则$w_1=w_2=w_a=w_b$，显然成立，以下假设$w_1&lt;w_b$。</p>
+<p>首先在$T$中交换$w_1$和$w_a$得到$T’$，再在$T’$中交换$w_2$和$w_b$得到$T’’$，易知$w_1$和$w_2$是深度最深的两个兄弟节点，则$WPL(T)-WPL(T’)=(w_a-w_1)(L(w_a)-L(w_1))\geq0$，同理，$WPL(T’)-WPL(T’’)\geq0$，则$WPL(T)\geq WPL(T’’)$，而$T$是最优二叉树，从而$T’’$也是最优二叉树。</p>
+<h2 id="T23"><a href="#T23" class="headerlink" title="T23"></a>T23</h2><p>说明：书上说用$Huffman$​算法得到的最优二叉树称为$Huffman$​树，其实这个定义放在证明之前不合适，在以下证明过程中，$Huffman$​树指用$Huffman$​算法得到的二叉树。</p>
+<p>首先证明如下引理：最优树展开或收缩依然是最优树。不妨$T_n$、$T_{n-1}$是最优树，$T_{n}’$是$T_{n-1}$展开所得，$T_{n-1}’$是$T_n$收缩所得。（展开、收缩均针对$w_1,w_2$）</p>
+<p>设$T_n$​是$n$​片树叶的最优树，合并$w_1+w_2$​为一片树叶得到$T_{n-1}’$​</p>
 <p>设$T_{n-1}$​是$n-1$​片树叶的最优树，展开$w_1+w_2$​为两片树叶得到$T{n}’$​</p>
 <p>$WPL(T_n)=WPL(T_{n-1}’)+w_1+w_2$​​</p>
-<p>$WPL(T_n’)=WPL(T_{n-1})+w_1+w_2$​</p>
+<p>$WPL(T_n’)=WPL(T_{n-1})+w_1+w_2,WPL(T_n)=WPL(T_{n-1}’)+w_1+w_2$</p>
 <p>$WPL(T_n)\leq WPL(T_n’),WPL(T_{n-1})\leq WPL(T_{n-1}’)$​</p>
 <p>从而$WPL(T_n)=WPL(T_n’),WPL(T_{n-1})=WPL(T_{n-1}’)$​</p>
-<p>从而最优树展开或合并得到的依然是最优树，进而对$Huffman$​树的树叶数进行归纳即可（$Huffman$​树合并或展开也还是$Huffman$​树）。</p>
+<p>从而最优树展开或合并得到的依然是最优树。</p>
+<p>考虑$Huffman$树构造过程，易知其合并或展开也还是$Huffman$​​树。从而可知$Huffman$树是最优树。（将$Huffman$树收缩至只有两个叶结点，是最优树，再展开回去还是最优树）</p>
+<p>特别地，从算法角度思考，引理$2.1$说明其具有贪心性质，而上述引理说明具有最优子结构性质，从贪心法来说$Huffman$构造是正确的。</p>
+<p>更为细致的讨论可以参见《算法导论》$chap16$。</p>
 <h2 id="T24"><a href="#T24" class="headerlink" title="T24"></a>T24</h2><p>（1）若不同，不妨$p_1$最小，为$(\frac{1}{2})^{t}$，而其余概率之和必定为$p_1$的偶数倍，再加上$p_1$综合为$p_1$的奇数倍，不可能为$1$，矛盾！</p>
 <p>（2）实际上即证$p_i$​概率对应的深度为$-lg\ p_i$​。对$n$作​归纳即可（每次合并最小的两个至$n-1$阶情形）。</p>
-<h2 id="T25"><a href="#T25" class="headerlink" title="T25"></a>T25</h2><p>连通图必有生成树，树至少有两片树叶，删这两点仍连通。</p>
+<h2 id="T25"><a href="#T25" class="headerlink" title="T25"></a>T25</h2><p>连通图必有生成树，非平凡树至少有两片树叶，删这两点仍连通。</p>
 <h2 id="T26"><a href="#T26" class="headerlink" title="T26"></a>T26</h2><p>至多$2$​次。首先拿出两个称重，如果平衡，拿出另外两个，轻的是伪币； 如果不平衡，那么轻的是伪币。</p>
 <h2 id="T27"><a href="#T27" class="headerlink" title="T27"></a>T27</h2><p>若至少一段不是树叶，不妨设为$v$，则$v$至少还和一点$u$相连，又由于树无圈，则$u$不在最长轨道上，那么原最长轨道加上$vu$必然是一条更长轨道，矛盾​！</p>
 
@@ -1264,7 +1268,7 @@ max_len <span class="token operator">=</span> <span class="token function">max</
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">119.6k</span>&nbsp;字
+                class="white-color">120k</span>&nbsp;字
             
             
             
@@ -1530,7 +1534,7 @@ $(function () {
     <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css"/>
 <script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget/autoload.js"></script>
-    <script src="/js/prism.js">
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script><!-- hexo-inject:begin --><!-- hexo-inject:end --></body>
+    <script src="/js/prism.js"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 
 </html>
