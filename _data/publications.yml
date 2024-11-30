@@ -1,0 +1,20 @@
+main:
+  - title: "CursorCore: Assist Programming through Aligning Anything"
+    authors: Hao Jiang, Qi Liu, Rui Li, <strong>Shengyu Ye</strong>, Shijin Wang
+    conference_short: arXiv
+    conference: arXiv preprint arXiv:2410.07002, 2024
+    pdf: https://arxiv.org/pdf/2410.07002.pdf
+    code: https://github.com/TechxGenus/CursorCore
+    page: https://arxiv.org/abs/2410.07002
+    image: ./assets/img/cursorcore.png
+    bibtex: assets/files/cursorcore.bib
+
+  - title: "VPTQ: Extreme Low-bit Vector Post-Training Quantization for Large Language Models"
+    authors: Yifei Liu, Jicheng Wen, Yang Wang, <strong>Shengyu Ye</strong>, Li Lyna Zhang, Ting Cao, Cheng Li, Mao Yang
+    conference_short: EMNLP
+    conference: The Conference on Empirical Methods in Natural Language Processing <strong>(EMNLP)</strong>, 2024
+    pdf: https://arxiv.org/pdf/2409.17066.pdf
+    code: https://github.com/microsoft/vptq
+    page: https://arxiv.org/abs/2409.17066
+    image: ./assets/img/vptq.png
+    bibtex: assets/files/vptq.bib
