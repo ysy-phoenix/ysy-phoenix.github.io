@@ -1,13 +1,36 @@
 main:
-  - title: "CursorCore: Assist Programming through Aligning Anything"
-    authors: Hao Jiang, Qi Liu, Rui Li, <strong>Shengyu Ye</strong>, Shijin Wang
+  - title: "Themis: Automated Constraint-Aware Test Synthesis Framework for Code Reinforcement Learning"
+    authors: <strong>Shengyu Ye</strong>, Qi Liu, Hao Jiang, Zheng Zhang, Yu Heng, Zhenya Huang
+    conference_short: AAAI
+    conference: The AAAI Conference on Artificial Intelligence <strong>(AAAI)</strong>, 2026
+    code: https://github.com/ysy-phoenix/Themis
+    image: ./assets/img/themis.png
+    bibtex: assets/files/themis.bib
+
+  - title: "LUT-DLA: Lookup Table as Efficient Extreme Low-Bit Deep Learning Accelerator"
+    authors: Guoyu Li*, <strong>Shengyu Ye*</strong>, Chunyun Chen*, Yang Wang, Fan Yang, Ting Cao, Cheng Liu, Mohamed M Sabry Aly, Mao Yang
+    conference_short: HPCA
+    conference: IEEE International Symposium on High Performance Computer Architecture <strong>(HPCA)</strong>, 2025
+    pdf: https://arxiv.org/pdf/2501.10658
+    image: ./assets/img/lut-dla.png
+    bibtex: assets/files/lut-dla.bib
+
+  - title: "LUT-LLM: Efficient Large Language Model Inference with Memory-based Computations on FPGAs"
+    authors: Zifan He*, <strong>Shengyu Ye*</strong>, Rui Ma, Yang Wang, Jason Cong
     conference_short: arXiv
-    conference: arXiv preprint arXiv:2410.07002, 2024
-    pdf: https://arxiv.org/pdf/2410.07002.pdf
-    code: https://github.com/TechxGenus/CursorCore
-    page: https://arxiv.org/abs/2410.07002
-    image: ./assets/img/cursorcore.png
-    bibtex: assets/files/cursorcore.bib
+    conference: arXiv preprint arXiv:2511.06174, 2025
+    pdf: https://arxiv.org/pdf/2511.06174
+    image: ./assets/img/lut-llm.png
+    bibtex: assets/files/lut-llm.bib
+
+  - title: "Reinforcement Learning with Verifiable Rewards Implicitly Incentivizes Correct Reasoning in Base LLMs"
+    authors: Xumeng Wen*, Zihan Liu*, Shun Zheng*, <strong>Shengyu Ye</strong>, Zhirong Wu, Yang Wang, Zhijian Xu, Xiao Liang, Junjie Li, Ziming Miao, Jiang Bian, Mao Yang
+    conference_short: arXiv
+    conference: arXiv preprint arXiv:2506.14245, 2025
+    pdf: https://arxiv.org/pdf/2506.14245
+    code: https://github.com/ysy-phoenix/evalhub
+    image: ./assets/img/rl.png
+    bibtex: assets/files/rl.bib
 
   - title: "VPTQ: Extreme Low-bit Vector Post-Training Quantization for Large Language Models"
     authors: Yifei Liu, Jicheng Wen, Yang Wang, <strong>Shengyu Ye</strong>, Li Lyna Zhang, Ting Cao, Cheng Li, Mao Yang
@@ -15,6 +38,5 @@ main:
     conference: The Conference on Empirical Methods in Natural Language Processing <strong>(EMNLP)</strong>, 2024
     pdf: https://arxiv.org/pdf/2409.17066.pdf
     code: https://github.com/microsoft/vptq
-    page: https://arxiv.org/abs/2409.17066
     image: ./assets/img/vptq.png
     bibtex: assets/files/vptq.bib
